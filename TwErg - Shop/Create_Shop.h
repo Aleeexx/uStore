@@ -50,8 +50,8 @@ namespace TwErgShop {
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::TextBox^  textBox4;
-	private: System::Windows::Forms::Label^  label7;
+
+
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::Label^  label8;
 
@@ -87,8 +87,6 @@ namespace TwErgShop {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -151,6 +149,7 @@ namespace TwErgShop {
 			// 
 			// Telefonnr
 			// 
+			this->Telefonnr->Enabled = false;
 			this->Telefonnr->Location = System::Drawing::Point(126, 104);
 			this->Telefonnr->Name = L"Telefonnr";
 			this->Telefonnr->Size = System::Drawing::Size(149, 21);
@@ -167,7 +166,7 @@ namespace TwErgShop {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(126, 228);
+			this->textBox1->Location = System::Drawing::Point(126, 185);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(149, 55);
@@ -177,7 +176,7 @@ namespace TwErgShop {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(13, 231);
+			this->label4->Location = System::Drawing::Point(13, 188);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(35, 16);
 			this->label4->TabIndex = 9;
@@ -185,7 +184,7 @@ namespace TwErgShop {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(214, 289);
+			this->button1->Location = System::Drawing::Point(214, 246);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(61, 23);
 			this->button1->TabIndex = 11;
@@ -194,7 +193,8 @@ namespace TwErgShop {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(126, 140);
+			this->textBox2->Enabled = false;
+			this->textBox2->Location = System::Drawing::Point(126, 131);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(149, 21);
 			this->textBox2->TabIndex = 13;
@@ -202,7 +202,7 @@ namespace TwErgShop {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(13, 143);
+			this->label5->Location = System::Drawing::Point(13, 134);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(84, 16);
 			this->label5->TabIndex = 12;
@@ -210,7 +210,8 @@ namespace TwErgShop {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(51, 167);
+			this->textBox3->Enabled = false;
+			this->textBox3->Location = System::Drawing::Point(51, 158);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(74, 21);
 			this->textBox3->TabIndex = 15;
@@ -218,31 +219,16 @@ namespace TwErgShop {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(13, 170);
+			this->label6->Location = System::Drawing::Point(13, 161);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(32, 16);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"PLZ.:";
 			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(126, 194);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(149, 21);
-			this->textBox4->TabIndex = 17;
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(13, 197);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(62, 16);
-			this->label7->TabIndex = 16;
-			this->label7->Text = L"Telefonnr.:";
-			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(201, 167);
+			this->textBox5->Enabled = false;
+			this->textBox5->Location = System::Drawing::Point(201, 158);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(74, 21);
 			this->textBox5->TabIndex = 19;
@@ -250,7 +236,7 @@ namespace TwErgShop {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(163, 170);
+			this->label8->Location = System::Drawing::Point(163, 161);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(28, 16);
 			this->label8->TabIndex = 18;
@@ -261,11 +247,9 @@ namespace TwErgShop {
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(285, 321);
+			this->ClientSize = System::Drawing::Size(285, 277);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->label7);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->textBox2);

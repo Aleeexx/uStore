@@ -90,6 +90,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Create_Shop.cpp" />
     <ClCompile Include="Login_Fehler.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -104,6 +105,7 @@
     <ClInclude Include="Login_Fehler.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="uStore_Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
