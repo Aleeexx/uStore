@@ -1,6 +1,8 @@
 #pragma once
 #include "uStore_Login.h"
 #include "Create_Shop.h"
+#include "Create_Shop_Control.h"
+
 namespace TwErgShop {
 
 	using namespace System;
@@ -36,14 +38,15 @@ namespace TwErgShop {
 			}
 		}
 	private: System::Windows::Forms::Button^  Logout;
-	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  ShopNeu;
+
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
-	private: System::Windows::Forms::TabControl^  Content;
-	private: System::Windows::Forms::TabPage^  tabPage1;
-	private: System::Windows::Forms::TabPage^  tabPage2;
+
+
+
 
 
 
@@ -73,16 +76,12 @@ namespace TwErgShop {
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(uStore_main::typeid));
 			this->Logout = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->ShopNeu = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->Content = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
-			this->Content->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Logout
@@ -99,17 +98,17 @@ namespace TwErgShop {
 			this->Logout->UseVisualStyleBackColor = false;
 			this->Logout->Click += gcnew System::EventHandler(this, &uStore_main::Logout_Click);
 			// 
-			// button1
+			// ShopNeu
 			// 
-			this->button1->FlatAppearance->BorderSize = 0;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(45, 112);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(100, 36);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"Shop erstellen.";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &uStore_main::button1_Click);
+			this->ShopNeu->FlatAppearance->BorderSize = 0;
+			this->ShopNeu->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ShopNeu->Location = System::Drawing::Point(45, 112);
+			this->ShopNeu->Name = L"ShopNeu";
+			this->ShopNeu->Size = System::Drawing::Size(100, 36);
+			this->ShopNeu->TabIndex = 1;
+			this->ShopNeu->Text = L"Shop erstellen.";
+			this->ShopNeu->UseVisualStyleBackColor = true;
+			this->ShopNeu->Click += gcnew System::EventHandler(this, &uStore_main::ShopNeu_Click);
 			// 
 			// button2
 			// 
@@ -153,37 +152,6 @@ namespace TwErgShop {
 			this->pictureBox1->TabIndex = 5;
 			this->pictureBox1->TabStop = false;
 			// 
-			// Content
-			// 
-			this->Content->Controls->Add(this->tabPage1);
-			this->Content->Controls->Add(this->tabPage2);
-			this->Content->Location = System::Drawing::Point(226, 27);
-			this->Content->Name = L"Content";
-			this->Content->SelectedIndex = 0;
-			this->Content->Size = System::Drawing::Size(369, 407);
-			this->Content->TabIndex = 6;
-			this->Content->TabStop = false;
-			// 
-			// tabPage1
-			// 
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
-			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(361, 378);
-			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"tabPage1";
-			this->tabPage1->UseVisualStyleBackColor = true;
-			// 
-			// tabPage2
-			// 
-			this->tabPage2->Location = System::Drawing::Point(4, 25);
-			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(361, 378);
-			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"tabPage2";
-			this->tabPage2->UseVisualStyleBackColor = true;
-			// 
 			// uStore_main
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
@@ -191,12 +159,11 @@ namespace TwErgShop {
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(607, 439);
 			this->ControlBox = false;
-			this->Controls->Add(this->Content);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->ShopNeu);
 			this->Controls->Add(this->Logout);
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
@@ -208,7 +175,6 @@ namespace TwErgShop {
 			this->Name = L"uStore_main";
 			this->Text = L"uStore";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
-			this->Content->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -218,10 +184,13 @@ namespace TwErgShop {
 		{
 			 Close();	 
 		}
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
+private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 Create_Shop ^ neuer = gcnew Create_Shop();
-			 neuer->ShowDialog();
+			 ControlCollection^ collection = gcnew ControlCollection;
+			 Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control();
+			 collection->Add(ShopControl);
+
+			 Label^ myLabel = gcnew Label;
 		 }
 };
 }

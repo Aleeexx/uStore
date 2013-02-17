@@ -42,6 +42,12 @@
     <ClCompile Include="Shop.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Artikel.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Create_Shop_Control.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -63,6 +69,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Shop.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Artikel.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Create_Shop_Control.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

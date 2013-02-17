@@ -3,4 +3,7 @@
 // die nur in unregelm‰ﬂigen Abst‰nden ge‰ndert werden.
 #pragma once
 
+using namespace System;
+#include <string>
+
 // TODO: Hier auf zus‰tzliche Header, die das Programm erfordert, verweisen.

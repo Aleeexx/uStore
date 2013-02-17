@@ -87,8 +87,10 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Artikel.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Create_Shop.cpp" />
+    <ClCompile Include="Create_Shop_Control.cpp" />
     <ClCompile Include="Login_Fehler.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -99,8 +101,12 @@
     <ClCompile Include="uStore_main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Artikel.h" />
     <ClInclude Include="Create_Shop.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Create_Shop_Control.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Login_Fehler.h">
       <FileType>CppForm</FileType>
@@ -121,6 +127,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Create_Shop.resx">
       <DependentUpon>Create_Shop.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_Shop_Control.resx">
+      <DependentUpon>Create_Shop_Control.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Fehler.resx">
       <DependentUpon>Login_Fehler.h</DependentUpon>

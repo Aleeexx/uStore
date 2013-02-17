@@ -39,21 +39,30 @@ namespace TwErgShop {
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::TextBox^  Shopname;
-	private: System::Windows::Forms::RadioButton^  radioButton1;
-	private: System::Windows::Forms::RadioButton^  radioButton2;
+	private: System::Windows::Forms::RadioButton^  privat;
+	private: System::Windows::Forms::RadioButton^  kommerziell;
+
+
 	private: System::Windows::Forms::TextBox^  Telefonnr;
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  Tags;
+
 	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::Button^  erstellen;
+	private: System::Windows::Forms::TextBox^  Strassenname;
+
+
+
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::TextBox^  textBox3;
+	private: System::Windows::Forms::TextBox^  PLZ;
+
 	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::TextBox^  Ort;
 
 
-	private: System::Windows::Forms::TextBox^  textBox5;
+
 	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
 
 
 
@@ -76,19 +85,21 @@ namespace TwErgShop {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->Shopname = (gcnew System::Windows::Forms::TextBox());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->privat = (gcnew System::Windows::Forms::RadioButton());
+			this->kommerziell = (gcnew System::Windows::Forms::RadioButton());
 			this->Telefonnr = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->Tags = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->erstellen = (gcnew System::Windows::Forms::Button());
+			this->Strassenname = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->PLZ = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->Ort = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -125,27 +136,29 @@ namespace TwErgShop {
 			this->Shopname->Size = System::Drawing::Size(149, 21);
 			this->Shopname->TabIndex = 3;
 			// 
-			// radioButton1
+			// privat
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(16, 73);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(58, 20);
-			this->radioButton1->TabIndex = 5;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Privat";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->privat->AutoSize = true;
+			this->privat->Location = System::Drawing::Point(8, 11);
+			this->privat->Name = L"privat";
+			this->privat->Size = System::Drawing::Size(58, 20);
+			this->privat->TabIndex = 5;
+			this->privat->TabStop = true;
+			this->privat->Text = L"Privat";
+			this->privat->UseVisualStyleBackColor = true;
+			this->privat->CheckedChanged += gcnew System::EventHandler(this, &Create_Shop::privat_CheckedChanged);
 			// 
-			// radioButton2
+			// kommerziell
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(126, 73);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(88, 20);
-			this->radioButton2->TabIndex = 6;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Kommerziell";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->kommerziell->AutoSize = true;
+			this->kommerziell->Location = System::Drawing::Point(118, 11);
+			this->kommerziell->Name = L"kommerziell";
+			this->kommerziell->Size = System::Drawing::Size(88, 20);
+			this->kommerziell->TabIndex = 6;
+			this->kommerziell->TabStop = true;
+			this->kommerziell->Text = L"Kommerziell";
+			this->kommerziell->UseVisualStyleBackColor = true;
+			this->kommerziell->CheckedChanged += gcnew System::EventHandler(this, &Create_Shop::kommerziell_CheckedChanged);
 			// 
 			// Telefonnr
 			// 
@@ -164,14 +177,14 @@ namespace TwErgShop {
 			this->label3->TabIndex = 7;
 			this->label3->Text = L"Telefonnr.:";
 			// 
-			// textBox1
+			// Tags
 			// 
-			this->textBox1->Location = System::Drawing::Point(126, 185);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(149, 55);
-			this->textBox1->TabIndex = 10;
-			this->textBox1->Text = L"Tags\r\nmit \',\'\r\ntrennen";
+			this->Tags->Location = System::Drawing::Point(126, 185);
+			this->Tags->Multiline = true;
+			this->Tags->Name = L"Tags";
+			this->Tags->Size = System::Drawing::Size(149, 55);
+			this->Tags->TabIndex = 10;
+			this->Tags->Text = L"Tags\r\nmit \',\'\r\ntrennen";
 			// 
 			// label4
 			// 
@@ -182,22 +195,22 @@ namespace TwErgShop {
 			this->label4->TabIndex = 9;
 			this->label4->Text = L"Tags:";
 			// 
-			// button1
+			// erstellen
 			// 
-			this->button1->Location = System::Drawing::Point(214, 246);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(61, 23);
-			this->button1->TabIndex = 11;
-			this->button1->Text = L"Erstellen.";
-			this->button1->UseVisualStyleBackColor = true;
+			this->erstellen->Location = System::Drawing::Point(214, 246);
+			this->erstellen->Name = L"erstellen";
+			this->erstellen->Size = System::Drawing::Size(61, 23);
+			this->erstellen->TabIndex = 11;
+			this->erstellen->Text = L"Erstellen.";
+			this->erstellen->UseVisualStyleBackColor = true;
 			// 
-			// textBox2
+			// Strassenname
 			// 
-			this->textBox2->Enabled = false;
-			this->textBox2->Location = System::Drawing::Point(126, 131);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(149, 21);
-			this->textBox2->TabIndex = 13;
+			this->Strassenname->Enabled = false;
+			this->Strassenname->Location = System::Drawing::Point(126, 131);
+			this->Strassenname->Name = L"Strassenname";
+			this->Strassenname->Size = System::Drawing::Size(149, 21);
+			this->Strassenname->TabIndex = 13;
 			// 
 			// label5
 			// 
@@ -208,13 +221,13 @@ namespace TwErgShop {
 			this->label5->TabIndex = 12;
 			this->label5->Text = L"Straßenname:";
 			// 
-			// textBox3
+			// PLZ
 			// 
-			this->textBox3->Enabled = false;
-			this->textBox3->Location = System::Drawing::Point(51, 158);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(74, 21);
-			this->textBox3->TabIndex = 15;
+			this->PLZ->Enabled = false;
+			this->PLZ->Location = System::Drawing::Point(51, 158);
+			this->PLZ->Name = L"PLZ";
+			this->PLZ->Size = System::Drawing::Size(74, 21);
+			this->PLZ->TabIndex = 15;
 			// 
 			// label6
 			// 
@@ -225,13 +238,13 @@ namespace TwErgShop {
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"PLZ.:";
 			// 
-			// textBox5
+			// Ort
 			// 
-			this->textBox5->Enabled = false;
-			this->textBox5->Location = System::Drawing::Point(201, 158);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(74, 21);
-			this->textBox5->TabIndex = 19;
+			this->Ort->Enabled = false;
+			this->Ort->Location = System::Drawing::Point(201, 158);
+			this->Ort->Name = L"Ort";
+			this->Ort->Size = System::Drawing::Size(74, 21);
+			this->Ort->TabIndex = 19;
 			// 
 			// label8
 			// 
@@ -242,25 +255,34 @@ namespace TwErgShop {
 			this->label8->TabIndex = 18;
 			this->label8->Text = L"Ort:";
 			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->kommerziell);
+			this->groupBox1->Controls->Add(this->privat);
+			this->groupBox1->Location = System::Drawing::Point(8, 62);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(267, 36);
+			this->groupBox1->TabIndex = 20;
+			this->groupBox1->TabStop = false;
+			// 
 			// Create_Shop
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(285, 277);
-			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->Ort);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->PLZ);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->Strassenname);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->erstellen);
+			this->Controls->Add(this->Tags);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->Telefonnr);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->radioButton2);
-			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->Shopname);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -273,10 +295,30 @@ namespace TwErgShop {
 			this->MaximizeBox = false;
 			this->Name = L"Create_Shop";
 			this->Text = L"Shop erstellen";
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void kommerziell_CheckedChanged(System::Object^  sender, System::EventArgs^  e)
+			 {
+				 privat->Checked = false;
+
+				 Telefonnr->Enabled = true;
+				 Strassenname->Enabled = true;
+				 PLZ->Enabled = true;
+				 Ort->Enabled = true;
+			 }
+private: System::Void privat_CheckedChanged(System::Object^  sender, System::EventArgs^  e)
+			 {
+				 kommerziell->Checked = false;
+
+				 Telefonnr->Enabled = false;
+				 Strassenname->Enabled = false;
+				 PLZ->Enabled = false;
+				 Ort->Enabled = false;
+			 }
+};
 }

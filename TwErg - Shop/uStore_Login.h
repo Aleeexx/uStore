@@ -109,7 +109,7 @@ namespace TwErgShop {
 			// 
 			// Register
 			// 
-			this->Register->FlatAppearance->BorderSize = 0;
+			this->Register->FlatAppearance->BorderColor = System::Drawing::Color::Firebrick;
 			this->Register->FlatAppearance->MouseDownBackColor = System::Drawing::Color::DimGray;
 			this->Register->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Register->Location = System::Drawing::Point(108, 172);
@@ -122,6 +122,8 @@ namespace TwErgShop {
 			// 
 			// Login
 			// 
+			this->Login->DialogResult = System::Windows::Forms::DialogResult::Cancel;
+			this->Login->FlatAppearance->BorderColor = System::Drawing::Color::Firebrick;
 			this->Login->FlatAppearance->BorderSize = 0;
 			this->Login->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Login->Location = System::Drawing::Point(-1, 172);
@@ -173,7 +175,7 @@ namespace TwErgShop {
 			// Beenden
 			// 
 			this->Beenden->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-			this->Beenden->FlatAppearance->BorderSize = 0;
+			this->Beenden->FlatAppearance->BorderColor = System::Drawing::Color::Firebrick;
 			this->Beenden->FlatAppearance->MouseDownBackColor = System::Drawing::Color::DimGray;
 			this->Beenden->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Beenden->Location = System::Drawing::Point(218, 172);
@@ -188,20 +190,22 @@ namespace TwErgShop {
 			// ButtonBorder
 			// 
 			this->ButtonBorder->BackColor = System::Drawing::Color::Firebrick;
-			this->ButtonBorder->Location = System::Drawing::Point(-12, 171);
+			this->ButtonBorder->Location = System::Drawing::Point(-1, 172);
 			this->ButtonBorder->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->ButtonBorder->Name = L"ButtonBorder";
-			this->ButtonBorder->Size = System::Drawing::Size(362, 71);
+			this->ButtonBorder->Size = System::Drawing::Size(362, 1);
 			this->ButtonBorder->TabIndex = 8;
 			// 
 			// uStore_Login
 			// 
+			this->AcceptButton = this->Login;
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->CancelButton = this->Beenden;
 			this->ClientSize = System::Drawing::Size(328, 219);
 			this->ControlBox = false;
+			this->Controls->Add(this->ButtonBorder);
 			this->Controls->Add(this->Beenden);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label3);
@@ -210,7 +214,6 @@ namespace TwErgShop {
 			this->Controls->Add(this->IDLogin);
 			this->Controls->Add(this->Login);
 			this->Controls->Add(this->Register);
-			this->Controls->Add(this->ButtonBorder);
 			this->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
@@ -228,6 +231,6 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void Beenden_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void Login_Click  (System::Object^  sender, System::EventArgs^  e);
-	};
+};
 }
 

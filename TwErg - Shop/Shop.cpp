@@ -2,6 +2,11 @@
 #include "Shop.h"
 
 
-CShop::CShop(void)
+CShop::CShop()
 {
+
+}
+CShop::~CShop()
+{
+
 }
