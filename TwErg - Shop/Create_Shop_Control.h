@@ -180,6 +180,7 @@ namespace TwErgShop {
 			this->erstellen->TabIndex = 29;
 			this->erstellen->Text = L"Erstellen.";
 			this->erstellen->UseVisualStyleBackColor = true;
+			this->erstellen->Click += gcnew System::EventHandler(this, &Create_Shop_Control::erstellen_Click);
 			// 
 			// Tags
 			// 
@@ -279,5 +280,9 @@ namespace TwErgShop {
 
 		}
 #pragma endregion
-	};
+	private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
+			 {
+				 
+			 }
+};
 }

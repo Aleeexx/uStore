@@ -186,11 +186,9 @@ namespace TwErgShop {
 		}
 private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 ControlCollection^ collection = gcnew ControlCollection;
 			 Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control();
-			 collection->Add(ShopControl);
-
-			 Label^ myLabel = gcnew Label;
+			 ShopControl->Location = Point(200, 70);
+			 Controls->Add(ShopControl);
 		 }
 };
 }
