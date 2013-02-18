@@ -47,14 +47,47 @@ namespace TwErgShop {
 
 
 	private: System::Windows::Forms::Button^  erstellen;
+	private: System::Windows::Forms::TextBox^  Beschreibung;
 
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::TextBox^  Preis;
 
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::TextBox^  Artikelname;
 
-
-
-
+	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+
+			 
+
+
+
+
+
+
+	protected: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -71,14 +104,23 @@ namespace TwErgShop {
 		{
 			this->erstellenAbbrechen = (gcnew System::Windows::Forms::Button());
 			this->erstellen = (gcnew System::Windows::Forms::Button());
+			this->Beschreibung = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->Preis = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->Artikelname = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// erstellenAbbrechen
 			// 
-			this->erstellenAbbrechen->Location = System::Drawing::Point(149, 292);
+			this->erstellenAbbrechen->Location = System::Drawing::Point(150, 292);
 			this->erstellenAbbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellenAbbrechen->Name = L"erstellenAbbrechen";
 			this->erstellenAbbrechen->Size = System::Drawing::Size(92, 28);
@@ -88,7 +130,7 @@ namespace TwErgShop {
 			// 
 			// erstellen
 			// 
-			this->erstellen->Location = System::Drawing::Point(251, 292);
+			this->erstellen->Location = System::Drawing::Point(252, 292);
 			this->erstellen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellen->Name = L"erstellen";
 			this->erstellen->Size = System::Drawing::Size(71, 28);
@@ -96,11 +138,64 @@ namespace TwErgShop {
 			this->erstellen->Text = L"Erstellen.";
 			this->erstellen->UseVisualStyleBackColor = true;
 			// 
+			// Beschreibung
+			// 
+			this->Beschreibung->Location = System::Drawing::Point(149, 97);
+			this->Beschreibung->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->Beschreibung->Multiline = true;
+			this->Beschreibung->Name = L"Beschreibung";
+			this->Beschreibung->Size = System::Drawing::Size(173, 67);
+			this->Beschreibung->TabIndex = 45;
+			this->Beschreibung->Text = L"Artikelbeschreibung.";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(17, 100);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(83, 16);
+			this->label4->TabIndex = 44;
+			this->label4->Text = L"Beschreibung:";
+			// 
+			// Preis
+			// 
+			this->Preis->Location = System::Drawing::Point(149, 68);
+			this->Preis->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->Preis->Name = L"Preis";
+			this->Preis->Size = System::Drawing::Size(173, 21);
+			this->Preis->TabIndex = 43;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(17, 72);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(34, 16);
+			this->label3->TabIndex = 42;
+			this->label3->Text = L"Preis:";
+			// 
+			// Artikelname
+			// 
+			this->Artikelname->Location = System::Drawing::Point(149, 39);
+			this->Artikelname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->Artikelname->Name = L"Artikelname";
+			this->Artikelname->Size = System::Drawing::Size(173, 21);
+			this->Artikelname->TabIndex = 41;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(17, 43);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(73, 16);
+			this->label2->TabIndex = 39;
+			this->label2->Text = L"Artikelname:";
+			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9.25F));
-			this->label1->Location = System::Drawing::Point(16, 59);
+			this->label1->Location = System::Drawing::Point(21, 59);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(330, 17);
 			this->label1->TabIndex = 38;
@@ -110,26 +205,59 @@ namespace TwErgShop {
 			// 
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->panel1->Controls->Add(this->label1);
-			this->panel1->Location = System::Drawing::Point(-20, -60);
+			this->panel1->Location = System::Drawing::Point(-19, -60);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(430, 84);
 			this->panel1->TabIndex = 40;
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(17, 177);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(29, 16);
+			this->label5->TabIndex = 55;
+			this->label5->Text = L"Bild:";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::Control;
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pictureBox1->Location = System::Drawing::Point(149, 171);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(173, 105);
+			this->pictureBox1->TabIndex = 56;
+			this->pictureBox1->TabStop = false;
+			// 
 			// Create_Artikel_Control
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->erstellenAbbrechen);
 			this->Controls->Add(this->erstellen);
+			this->Controls->Add(this->Beschreibung);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->Preis);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->Artikelname);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->panel1);
+			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
+			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"Create_Artikel_Control";
-			this->Size = System::Drawing::Size(327, 322);
+			this->Size = System::Drawing::Size(336, 330);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+};
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "uStore_Login.h"
 #include "Create_Shop_Control.h"
+#include "Create_Artikel_Control.h"
 
 namespace TwErgShop {
 
@@ -94,7 +95,7 @@ namespace TwErgShop {
 			this->Logout->DialogResult = System::Windows::Forms::DialogResult::Cancel;
 			this->Logout->FlatAppearance->BorderSize = 0;
 			this->Logout->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Logout->Location = System::Drawing::Point(540, 0);
+			this->Logout->Location = System::Drawing::Point(469, 0);
 			this->Logout->Name = L"Logout";
 			this->Logout->Size = System::Drawing::Size(67, 24);
 			this->Logout->TabIndex = 4;
@@ -166,13 +167,14 @@ namespace TwErgShop {
 			this->ArtikelVerkaufen->TabIndex = 6;
 			this->ArtikelVerkaufen->Text = L"Artikel verkaufen.";
 			this->ArtikelVerkaufen->UseVisualStyleBackColor = true;
+			this->ArtikelVerkaufen->Click += gcnew System::EventHandler(this, &uStore_main::ArtikelVerkaufen_Click);
 			// 
 			// uStore_main
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(607, 439);
+			this->ClientSize = System::Drawing::Size(536, 439);
 			this->ControlBox = false;
 			this->Controls->Add(this->ArtikelVerkaufen);
 			this->Controls->Add(this->Logo);
@@ -198,5 +200,6 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void Logout_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void ArtikelVerkaufen_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

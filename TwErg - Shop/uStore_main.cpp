@@ -18,4 +18,13 @@ namespace TwErgShop
 				/*Schließt uStore_main und springt zurück
 				zu uStore_Login (Wird auch direkt geschlossen)*/
 		}
+	Void uStore_main::ArtikelVerkaufen_Click(System::Object^  sender, System::EventArgs^  e)
+		{
+			//UserControl Objekt wird erstellt
+			Create_Artikel_Control^ ArtikelControl = gcnew Create_Artikel_Control();
+			//Position des UserControls
+			ArtikelControl->Location = Point(200, 90);
+			//Hinzufügen zum ControlCollective
+			Controls->Add(ArtikelControl);
+		}
 }
