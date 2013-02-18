@@ -183,11 +183,16 @@ namespace TwErgShop {
 	private: System::Void Logout_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			 Close();	 
+			 /*Schließt uStore_main und springt zurück
+			 zu uStore_Login (Wird auch direkt geschlossen)*/
 		}
 private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
+			 //UserControl Objekt wird erstellt
 			 Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control();
-			 ShopControl->Location = Point(200, 70);
+			 //Position des UserControls
+			 ShopControl->Location = Point(200, 90);
+			 //Hinzufügen zum ControlCollective
 			 Controls->Add(ShopControl);
 		 }
 };

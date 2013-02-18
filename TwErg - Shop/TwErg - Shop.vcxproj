@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClCompile Include="Artikel.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Benutzer.cpp" />
     <ClCompile Include="Create_Shop.cpp" />
     <ClCompile Include="Create_Shop_Control.cpp" />
     <ClCompile Include="Login_Fehler.cpp" />
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artikel.h" />
+    <ClInclude Include="Benutzer.h" />
     <ClInclude Include="Create_Shop.h">
       <FileType>CppForm</FileType>
     </ClInclude>

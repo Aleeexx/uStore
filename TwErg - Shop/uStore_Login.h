@@ -110,15 +110,17 @@ namespace TwErgShop {
 			// Register
 			// 
 			this->Register->FlatAppearance->BorderColor = System::Drawing::Color::Firebrick;
+			this->Register->FlatAppearance->BorderSize = 0;
 			this->Register->FlatAppearance->MouseDownBackColor = System::Drawing::Color::DimGray;
 			this->Register->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Register->Location = System::Drawing::Point(108, 172);
+			this->Register->Location = System::Drawing::Point(107, 171);
 			this->Register->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Register->Name = L"Register";
-			this->Register->Size = System::Drawing::Size(111, 48);
+			this->Register->Size = System::Drawing::Size(113, 49);
 			this->Register->TabIndex = 3;
 			this->Register->Text = L"Mitglied werden.";
 			this->Register->UseVisualStyleBackColor = true;
+			this->Register->Click += gcnew System::EventHandler(this, &uStore_Login::Register_Click);
 			// 
 			// Login
 			// 
@@ -231,6 +233,22 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void Beenden_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void Login_Click  (System::Object^  sender, System::EventArgs^  e);
+	private: System::Void Register_Click(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 ClientSize = System::Drawing::Size(328, 300);
+			 Login->Location = System::Drawing::Point(-1, 253);
+			 Register->Location = System::Drawing::Point(108, 253);
+			 Beenden->Location = System::Drawing::Point(218, 253);
+			 ButtonBorder->Location = System::Drawing::Point(-1, 253);
+
+			 Label^ label4 = (gcnew System::Windows::Forms::Label());
+		 	 label4->AutoSize = true;
+		 	 label4->Location = System::Drawing::Point(10, 161);
+			 label4->Name = L"label4";
+			 label2->Size = System::Drawing::Size(100, 16);
+			 label4->TabIndex = 8;
+			 label4->Text = L"Passwort wiederholen:";
+		 }
 };
 }
 
