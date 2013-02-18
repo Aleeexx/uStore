@@ -36,9 +36,6 @@
     <ClCompile Include="uStore_Login.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Create_Shop.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Shop.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -49,6 +46,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Benutzer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Adresse.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Create_Artikel_Control.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,9 +71,6 @@
     <ClInclude Include="uStore_main.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Create_Shop.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Shop.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -81,6 +81,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Benutzer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Adresse.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Create_Artikel_Control.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

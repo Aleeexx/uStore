@@ -233,22 +233,7 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void Beenden_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void Login_Click  (System::Object^  sender, System::EventArgs^  e);
-	private: System::Void Register_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			 ClientSize = System::Drawing::Size(328, 300);
-			 Login->Location = System::Drawing::Point(-1, 253);
-			 Register->Location = System::Drawing::Point(108, 253);
-			 Beenden->Location = System::Drawing::Point(218, 253);
-			 ButtonBorder->Location = System::Drawing::Point(-1, 253);
-
-			 Label^ label4 = (gcnew System::Windows::Forms::Label());
-		 	 label4->AutoSize = true;
-		 	 label4->Location = System::Drawing::Point(10, 161);
-			 label4->Name = L"label4";
-			 label2->Size = System::Drawing::Size(100, 16);
-			 label4->TabIndex = 8;
-			 label4->Text = L"Passwort wiederholen:";
-		 }
+	private: System::Void Register_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
 

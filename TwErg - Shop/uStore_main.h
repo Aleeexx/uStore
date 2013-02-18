@@ -1,6 +1,5 @@
 #pragma once
 #include "uStore_Login.h"
-#include "Create_Shop.h"
 #include "Create_Shop_Control.h"
 
 namespace TwErgShop {
@@ -39,11 +38,15 @@ namespace TwErgShop {
 		}
 	private: System::Windows::Forms::Button^  Logout;
 	private: System::Windows::Forms::Button^  ShopNeu;
+	private: System::Windows::Forms::Button^  ShopSuchen;
+	private: System::Windows::Forms::Button^  ArtikelSuchen;
 
-	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Button^  button3;
+
+
 	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::PictureBox^  Logo;
+	private: System::Windows::Forms::Button^  ArtikelVerkaufen;
+
 
 
 
@@ -77,11 +80,12 @@ namespace TwErgShop {
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(uStore_main::typeid));
 			this->Logout = (gcnew System::Windows::Forms::Button());
 			this->ShopNeu = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->ShopSuchen = (gcnew System::Windows::Forms::Button());
+			this->ArtikelSuchen = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
+			this->Logo = (gcnew System::Windows::Forms::PictureBox());
+			this->ArtikelVerkaufen = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Logo))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// Logout
@@ -104,33 +108,33 @@ namespace TwErgShop {
 			this->ShopNeu->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->ShopNeu->Location = System::Drawing::Point(45, 112);
 			this->ShopNeu->Name = L"ShopNeu";
-			this->ShopNeu->Size = System::Drawing::Size(100, 36);
+			this->ShopNeu->Size = System::Drawing::Size(110, 36);
 			this->ShopNeu->TabIndex = 1;
 			this->ShopNeu->Text = L"Shop erstellen.";
 			this->ShopNeu->UseVisualStyleBackColor = true;
 			this->ShopNeu->Click += gcnew System::EventHandler(this, &uStore_main::ShopNeu_Click);
 			// 
-			// button2
+			// ShopSuchen
 			// 
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(45, 154);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(100, 36);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Shop suchen.";
-			this->button2->UseVisualStyleBackColor = true;
+			this->ShopSuchen->FlatAppearance->BorderSize = 0;
+			this->ShopSuchen->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ShopSuchen->Location = System::Drawing::Point(45, 196);
+			this->ShopSuchen->Name = L"ShopSuchen";
+			this->ShopSuchen->Size = System::Drawing::Size(110, 36);
+			this->ShopSuchen->TabIndex = 2;
+			this->ShopSuchen->Text = L"Shop suchen.";
+			this->ShopSuchen->UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// ArtikelSuchen
 			// 
-			this->button3->FlatAppearance->BorderSize = 0;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Location = System::Drawing::Point(45, 196);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(100, 36);
-			this->button3->TabIndex = 3;
-			this->button3->Text = L"Item suchen.";
-			this->button3->UseVisualStyleBackColor = true;
+			this->ArtikelSuchen->FlatAppearance->BorderSize = 0;
+			this->ArtikelSuchen->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ArtikelSuchen->Location = System::Drawing::Point(45, 238);
+			this->ArtikelSuchen->Name = L"ArtikelSuchen";
+			this->ArtikelSuchen->Size = System::Drawing::Size(110, 36);
+			this->ArtikelSuchen->TabIndex = 3;
+			this->ArtikelSuchen->Text = L"Artikel suchen.";
+			this->ArtikelSuchen->UseVisualStyleBackColor = true;
 			// 
 			// label1
 			// 
@@ -142,15 +146,26 @@ namespace TwErgShop {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Was willst Du machen\?";
 			// 
-			// pictureBox1
+			// Logo
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(20, 27);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(165, 49);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBox1->TabIndex = 5;
-			this->pictureBox1->TabStop = false;
+			this->Logo->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"Logo.Image")));
+			this->Logo->Location = System::Drawing::Point(20, 27);
+			this->Logo->Name = L"Logo";
+			this->Logo->Size = System::Drawing::Size(165, 49);
+			this->Logo->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->Logo->TabIndex = 5;
+			this->Logo->TabStop = false;
+			// 
+			// ArtikelVerkaufen
+			// 
+			this->ArtikelVerkaufen->FlatAppearance->BorderSize = 0;
+			this->ArtikelVerkaufen->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ArtikelVerkaufen->Location = System::Drawing::Point(45, 154);
+			this->ArtikelVerkaufen->Name = L"ArtikelVerkaufen";
+			this->ArtikelVerkaufen->Size = System::Drawing::Size(110, 36);
+			this->ArtikelVerkaufen->TabIndex = 6;
+			this->ArtikelVerkaufen->Text = L"Artikel verkaufen.";
+			this->ArtikelVerkaufen->UseVisualStyleBackColor = true;
 			// 
 			// uStore_main
 			// 
@@ -159,10 +174,11 @@ namespace TwErgShop {
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(607, 439);
 			this->ControlBox = false;
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->ArtikelVerkaufen);
+			this->Controls->Add(this->Logo);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->ArtikelSuchen);
+			this->Controls->Add(this->ShopSuchen);
 			this->Controls->Add(this->ShopNeu);
 			this->Controls->Add(this->Logout);
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
@@ -174,26 +190,13 @@ namespace TwErgShop {
 			this->MaximizeBox = false;
 			this->Name = L"uStore_main";
 			this->Text = L"uStore";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Logo))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void Logout_Click(System::Object^  sender, System::EventArgs^  e)
-		{
-			 Close();	 
-			 /*Schließt uStore_main und springt zurück
-			 zu uStore_Login (Wird auch direkt geschlossen)*/
-		}
-private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			 //UserControl Objekt wird erstellt
-			 Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control();
-			 //Position des UserControls
-			 ShopControl->Location = Point(200, 90);
-			 //Hinzufügen zum ControlCollective
-			 Controls->Add(ShopControl);
-		 }
+	private: System::Void Logout_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

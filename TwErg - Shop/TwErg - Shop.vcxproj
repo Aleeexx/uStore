@@ -87,10 +87,11 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adresse.cpp" />
     <ClCompile Include="Artikel.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Benutzer.cpp" />
-    <ClCompile Include="Create_Shop.cpp" />
+    <ClCompile Include="Create_Artikel_Control.cpp" />
     <ClCompile Include="Create_Shop_Control.cpp" />
     <ClCompile Include="Login_Fehler.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -102,10 +103,11 @@
     <ClCompile Include="uStore_main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adresse.h" />
     <ClInclude Include="Artikel.h" />
     <ClInclude Include="Benutzer.h" />
-    <ClInclude Include="Create_Shop.h">
-      <FileType>CppForm</FileType>
+    <ClInclude Include="Create_Artikel_Control.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Create_Shop_Control.h">
       <FileType>CppControl</FileType>
@@ -127,8 +129,8 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Create_Shop.resx">
-      <DependentUpon>Create_Shop.h</DependentUpon>
+    <EmbeddedResource Include="Create_Artikel_Control.resx">
+      <DependentUpon>Create_Artikel_Control.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Create_Shop_Control.resx">
       <DependentUpon>Create_Shop_Control.h</DependentUpon>
