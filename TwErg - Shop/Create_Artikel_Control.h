@@ -1,4 +1,5 @@
 #pragma once
+#include "uStore_main.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -16,14 +17,14 @@ namespace TwErgShop {
 	public ref class Create_Artikel_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Create_Artikel_Control(void)
+		Create_Artikel_Control(uStore_main^ tmp)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			ptrParent = tmp;
 		}
-
 	protected:
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
@@ -35,16 +36,11 @@ namespace TwErgShop {
 				delete components;
 			}
 		}
+	private:
+		uStore_main^ ptrParent;
+		String^ Pfad;
+
 	private: System::Windows::Forms::Button^  erstellenAbbrechen;
-	protected: 
-
-
-
-
-
-
-
-
 
 	private: System::Windows::Forms::Button^  erstellen;
 	private: System::Windows::Forms::TextBox^  Beschreibung;
@@ -59,7 +55,11 @@ namespace TwErgShop {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::PictureBox^  Bild;
+
+	private: System::Windows::Forms::Button^  btnOpen;
+	private: System::Windows::Forms::OpenFileDialog^  openPicture;
+
 
 			 
 
@@ -113,9 +113,11 @@ namespace TwErgShop {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->Bild = (gcnew System::Windows::Forms::PictureBox());
+			this->btnOpen = (gcnew System::Windows::Forms::Button());
+			this->openPicture = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Bild))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// erstellenAbbrechen
@@ -124,9 +126,10 @@ namespace TwErgShop {
 			this->erstellenAbbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellenAbbrechen->Name = L"erstellenAbbrechen";
 			this->erstellenAbbrechen->Size = System::Drawing::Size(92, 28);
-			this->erstellenAbbrechen->TabIndex = 54;
+			this->erstellenAbbrechen->TabIndex = 9;
 			this->erstellenAbbrechen->Text = L"Doch nicht.";
 			this->erstellenAbbrechen->UseVisualStyleBackColor = true;
+			this->erstellenAbbrechen->Click += gcnew System::EventHandler(this, &Create_Artikel_Control::erstellenAbbrechen_Click);
 			// 
 			// erstellen
 			// 
@@ -134,9 +137,10 @@ namespace TwErgShop {
 			this->erstellen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellen->Name = L"erstellen";
 			this->erstellen->Size = System::Drawing::Size(71, 28);
-			this->erstellen->TabIndex = 46;
+			this->erstellen->TabIndex = 8;
 			this->erstellen->Text = L"Erstellen.";
 			this->erstellen->UseVisualStyleBackColor = true;
+			this->erstellen->Click += gcnew System::EventHandler(this, &Create_Artikel_Control::erstellen_Click);
 			// 
 			// Beschreibung
 			// 
@@ -145,7 +149,7 @@ namespace TwErgShop {
 			this->Beschreibung->Multiline = true;
 			this->Beschreibung->Name = L"Beschreibung";
 			this->Beschreibung->Size = System::Drawing::Size(173, 67);
-			this->Beschreibung->TabIndex = 45;
+			this->Beschreibung->TabIndex = 6;
 			this->Beschreibung->Text = L"Artikelbeschreibung.";
 			// 
 			// label4
@@ -163,7 +167,7 @@ namespace TwErgShop {
 			this->Preis->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Preis->Name = L"Preis";
 			this->Preis->Size = System::Drawing::Size(173, 21);
-			this->Preis->TabIndex = 43;
+			this->Preis->TabIndex = 5;
 			// 
 			// label3
 			// 
@@ -180,7 +184,7 @@ namespace TwErgShop {
 			this->Artikelname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Artikelname->Name = L"Artikelname";
 			this->Artikelname->Size = System::Drawing::Size(173, 21);
-			this->Artikelname->TabIndex = 41;
+			this->Artikelname->TabIndex = 4;
 			// 
 			// label2
 			// 
@@ -220,22 +224,37 @@ namespace TwErgShop {
 			this->label5->TabIndex = 55;
 			this->label5->Text = L"Bild:";
 			// 
-			// pictureBox1
+			// Bild
 			// 
-			this->pictureBox1->BackColor = System::Drawing::SystemColors::Control;
-			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->pictureBox1->Location = System::Drawing::Point(149, 171);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(173, 105);
-			this->pictureBox1->TabIndex = 56;
-			this->pictureBox1->TabStop = false;
+			this->Bild->BackColor = System::Drawing::SystemColors::Control;
+			this->Bild->Location = System::Drawing::Point(149, 171);
+			this->Bild->Name = L"Bild";
+			this->Bild->Size = System::Drawing::Size(173, 105);
+			this->Bild->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->Bild->TabIndex = 56;
+			this->Bild->TabStop = false;
+			// 
+			// btnOpen
+			// 
+			this->btnOpen->Location = System::Drawing::Point(20, 196);
+			this->btnOpen->Name = L"btnOpen";
+			this->btnOpen->Size = System::Drawing::Size(98, 28);
+			this->btnOpen->TabIndex = 7;
+			this->btnOpen->Text = L"Bild aussuchen.";
+			this->btnOpen->UseVisualStyleBackColor = true;
+			this->btnOpen->Click += gcnew System::EventHandler(this, &Create_Artikel_Control::btnOpen_Click);
+			// 
+			// openPicture
+			// 
+			this->openPicture->FileName = L"openPicture";
 			// 
 			// Create_Artikel_Control
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->btnOpen);
+			this->Controls->Add(this->Bild);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->erstellenAbbrechen);
 			this->Controls->Add(this->erstellen);
@@ -253,11 +272,30 @@ namespace TwErgShop {
 			this->Size = System::Drawing::Size(336, 330);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Bild))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+private: System::Void btnOpen_Click(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 //Startorder: Eigene Bilder
+			  openPicture->InitialDirectory = Environment::GetFolderPath(
+				  Environment::SpecialFolder::MyPictures);
+			  
+			  openPicture->ShowDialog();
+			  Bild->BackColor = System::Drawing::Color::White;
+			  Pfad = openPicture->FileName;
+			  Bild->ImageLocation = Pfad;
+		 }
+private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 ptrParent->Controls->Remove(this);
+		 }
+private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 ptrParent->Controls->Remove(this);
+		 }
 };
 }
