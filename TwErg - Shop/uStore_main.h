@@ -1,7 +1,5 @@
 #pragma once
 #include "uStore_Login.h"
-#include "Create_Shop_Control.h"
-#include "Create_Artikel_Control.h"
 
 namespace TwErgShop {
 
@@ -25,6 +23,8 @@ namespace TwErgShop {
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
 		}
+
+		void ControlClose();
 
 	protected:
 		/// <summary>
@@ -99,6 +99,7 @@ namespace TwErgShop {
 			this->Logout->Name = L"Logout";
 			this->Logout->Size = System::Drawing::Size(67, 24);
 			this->Logout->TabIndex = 4;
+			this->Logout->TabStop = false;
 			this->Logout->Text = L"Raus hier!";
 			this->Logout->UseVisualStyleBackColor = false;
 			this->Logout->Click += gcnew System::EventHandler(this, &uStore_main::Logout_Click);
@@ -110,7 +111,7 @@ namespace TwErgShop {
 			this->ShopNeu->Location = System::Drawing::Point(45, 112);
 			this->ShopNeu->Name = L"ShopNeu";
 			this->ShopNeu->Size = System::Drawing::Size(110, 36);
-			this->ShopNeu->TabIndex = 1;
+			this->ShopNeu->TabIndex = 0;
 			this->ShopNeu->Text = L"Shop erstellen.";
 			this->ShopNeu->UseVisualStyleBackColor = true;
 			this->ShopNeu->Click += gcnew System::EventHandler(this, &uStore_main::ShopNeu_Click);
@@ -144,7 +145,7 @@ namespace TwErgShop {
 			this->label1->Location = System::Drawing::Point(18, 90);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(168, 19);
-			this->label1->TabIndex = 0;
+			this->label1->TabIndex = 6;
 			this->label1->Text = L"Was willst Du machen\?";
 			// 
 			// Logo
@@ -164,7 +165,7 @@ namespace TwErgShop {
 			this->ArtikelVerkaufen->Location = System::Drawing::Point(45, 154);
 			this->ArtikelVerkaufen->Name = L"ArtikelVerkaufen";
 			this->ArtikelVerkaufen->Size = System::Drawing::Size(110, 36);
-			this->ArtikelVerkaufen->TabIndex = 6;
+			this->ArtikelVerkaufen->TabIndex = 1;
 			this->ArtikelVerkaufen->Text = L"Artikel verkaufen.";
 			this->ArtikelVerkaufen->UseVisualStyleBackColor = true;
 			this->ArtikelVerkaufen->Click += gcnew System::EventHandler(this, &uStore_main::ArtikelVerkaufen_Click);
@@ -191,6 +192,7 @@ namespace TwErgShop {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->MaximizeBox = false;
 			this->Name = L"uStore_main";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"uStore";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Logo))->EndInit();
 			this->ResumeLayout(false);

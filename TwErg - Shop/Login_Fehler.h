@@ -88,6 +88,7 @@ namespace TwErgShop {
 			// 
 			// OK
 			// 
+			this->OK->DialogResult = System::Windows::Forms::DialogResult::Cancel;
 			this->OK->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10));
 			this->OK->Location = System::Drawing::Point(218, 97);
 			this->OK->Name = L"OK";
@@ -101,7 +102,7 @@ namespace TwErgShop {
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->OK;
-			this->ClientSize = System::Drawing::Size(331, 134);
+			this->ClientSize = System::Drawing::Size(327, 130);
 			this->ControlBox = false;
 			this->Controls->Add(this->OK);
 			this->Controls->Add(this->ups);
@@ -114,6 +115,7 @@ namespace TwErgShop {
 			this->ShowIcon = false;
 			this->ShowInTaskbar = false;
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"Login Fehler";
 			this->TopMost = true;
 			this->ResumeLayout(false);

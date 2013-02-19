@@ -1,4 +1,5 @@
 #pragma once
+#include "uStore_main.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -16,13 +17,16 @@ namespace TwErgShop {
 	public ref class Create_Shop_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Create_Shop_Control(void)
+		Create_Shop_Control(uStore_main^ tmpParent)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			ptrParent = tmpParent;
 		}
+		//event EventHandler^ OnClickAbbrechen;
+
 
 	protected:
 		/// <summary>
@@ -35,8 +39,12 @@ namespace TwErgShop {
 				delete components;
 			}
 		}
+	private:
+		uStore_main^ ptrParent;
+
+
 	private: System::Windows::Forms::GroupBox^  groupBox1;
-	protected: 
+
 	private: System::Windows::Forms::RadioButton^  kommerziell;
 	private: System::Windows::Forms::RadioButton^  privat;
 	private: System::Windows::Forms::TextBox^  Ort;
@@ -274,6 +282,7 @@ namespace TwErgShop {
 			this->erstellenAbbrechen->TabIndex = 37;
 			this->erstellenAbbrechen->Text = L"Doch nicht.";
 			this->erstellenAbbrechen->UseVisualStyleBackColor = true;
+			this->erstellenAbbrechen->Click += gcnew System::EventHandler(this, &Create_Shop_Control::erstellenAbbrechen_Click);
 			// 
 			// Create_Shop_Control
 			// 
@@ -312,7 +321,13 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 			 {
+				 ptrParent->Controls->Remove(this);
+			 }
+	private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
+			 {
+				 ptrParent->Controls->Remove(this);
 				 
+				  //FindForm()->Controls->Remove(this);
 			 }
 };
 }

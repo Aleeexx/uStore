@@ -8,6 +8,7 @@ private:
 	String^ Firma;
 	String^ Beschreibung;
 	String^ Bild;
+	String^ BildPfad;
 
 	float Preis;
 	int Anzahl;

@@ -224,6 +224,7 @@ namespace TwErgShop {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->MaximizeBox = false;
 			this->Name = L"uStore_Login";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"uStore";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
