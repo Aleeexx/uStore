@@ -12,10 +12,10 @@ namespace TwErgShop {
 	/// <summary>
 	/// Zusammenfassung für Login_Fehler
 	/// </summary>
-	public ref class Login_Fehler : public System::Windows::Forms::Form
+	public ref class Fehler : public System::Windows::Forms::Form
 	{
 	public:
-		Login_Fehler(void)
+		Fehler(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace TwErgShop {
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
 		/// </summary>
-		~Login_Fehler()
+		~Fehler()
 		{
 			if (components)
 			{
@@ -72,7 +72,7 @@ namespace TwErgShop {
 			this->FalscheEingabe->ReadOnly = true;
 			this->FalscheEingabe->Size = System::Drawing::Size(307, 55);
 			this->FalscheEingabe->TabIndex = 2;
-			this->FalscheEingabe->Text = L"Du hast entweder deinen Benutzernamen, oder dein Passwort falsch eingegeben";
+			this->FalscheEingabe->Text = L"Da ist irgendetwas schief gelaufen, bitte überprüfe nochmals deine Eingaben.";
 			// 
 			// ups
 			// 
@@ -102,7 +102,7 @@ namespace TwErgShop {
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->OK;
-			this->ClientSize = System::Drawing::Size(327, 130);
+			this->ClientSize = System::Drawing::Size(319, 136);
 			this->ControlBox = false;
 			this->Controls->Add(this->OK);
 			this->Controls->Add(this->ups);
@@ -111,12 +111,12 @@ namespace TwErgShop {
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->Name = L"Login_Fehler";
+			this->Name = L"Fehler";
 			this->ShowIcon = false;
 			this->ShowInTaskbar = false;
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"Login Fehler";
+			this->Text = L"Fehler";
 			this->TopMost = true;
 			this->ResumeLayout(false);
 			this->PerformLayout();
