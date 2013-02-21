@@ -1,5 +1,6 @@
 #pragma once
 #include "uStore_Login.h"
+#include "Benutzer.h"
 
 namespace TwErgShop {
 
@@ -16,13 +17,15 @@ namespace TwErgShop {
 	public ref class uStore_main : public System::Windows::Forms::Form
 	{
 	public:
-		uStore_main()
+		uStore_main(CBenutzer^ tmpUser)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			user = tmpUser;
 		}
+		CBenutzer^ user;
 
 	protected:
 		/// <summary>

@@ -53,6 +53,8 @@ namespace TwErgShop {
 	private: System::Windows::Forms::TextBox^  Nachname;
 	private: System::Windows::Forms::TextBox^  Telefonnr;
 	private: System::Windows::Forms::TextBox^  Email;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::Panel^  panel1;
 
 
 
@@ -95,11 +97,13 @@ namespace TwErgShop {
 			this->Nachname = (gcnew System::Windows::Forms::TextBox());
 			this->Telefonnr = (gcnew System::Windows::Forms::TextBox());
 			this->Email = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->SuspendLayout();
 			// 
 			// erstellenAbbrechen
 			// 
-			this->erstellenAbbrechen->Location = System::Drawing::Point(141, 206);
+			this->erstellenAbbrechen->Location = System::Drawing::Point(141, 226);
 			this->erstellenAbbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellenAbbrechen->Name = L"erstellenAbbrechen";
 			this->erstellenAbbrechen->Size = System::Drawing::Size(78, 28);
@@ -110,7 +114,7 @@ namespace TwErgShop {
 			// 
 			// erstellen
 			// 
-			this->erstellen->Location = System::Drawing::Point(243, 206);
+			this->erstellen->Location = System::Drawing::Point(243, 226);
 			this->erstellen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellen->Name = L"erstellen";
 			this->erstellen->Size = System::Drawing::Size(71, 28);
@@ -122,7 +126,7 @@ namespace TwErgShop {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(15, 105);
+			this->label2->Location = System::Drawing::Point(15, 125);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(60, 16);
 			this->label2->TabIndex = 41;
@@ -131,7 +135,7 @@ namespace TwErgShop {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(15, 130);
+			this->label3->Location = System::Drawing::Point(15, 150);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(73, 16);
 			this->label3->TabIndex = 42;
@@ -140,7 +144,7 @@ namespace TwErgShop {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(15, 155);
+			this->label4->Location = System::Drawing::Point(15, 175);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(93, 16);
 			this->label4->TabIndex = 43;
@@ -149,7 +153,7 @@ namespace TwErgShop {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(15, 180);
+			this->label5->Location = System::Drawing::Point(15, 200);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(82, 16);
 			this->label5->TabIndex = 44;
@@ -158,7 +162,7 @@ namespace TwErgShop {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(15, 20);
+			this->label1->Location = System::Drawing::Point(15, 40);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(89, 16);
 			this->label1->TabIndex = 40;
@@ -167,7 +171,7 @@ namespace TwErgShop {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(15, 45);
+			this->label6->Location = System::Drawing::Point(15, 65);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(58, 16);
 			this->label6->TabIndex = 45;
@@ -176,7 +180,7 @@ namespace TwErgShop {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(15, 70);
+			this->label7->Location = System::Drawing::Point(15, 90);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(128, 16);
 			this->label7->TabIndex = 46;
@@ -184,7 +188,7 @@ namespace TwErgShop {
 			// 
 			// Benutzername
 			// 
-			this->Benutzername->Location = System::Drawing::Point(141, 17);
+			this->Benutzername->Location = System::Drawing::Point(141, 37);
 			this->Benutzername->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Benutzername->Name = L"Benutzername";
 			this->Benutzername->Size = System::Drawing::Size(173, 21);
@@ -192,7 +196,7 @@ namespace TwErgShop {
 			// 
 			// Passwort1
 			// 
-			this->Passwort1->Location = System::Drawing::Point(141, 42);
+			this->Passwort1->Location = System::Drawing::Point(141, 62);
 			this->Passwort1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Passwort1->Name = L"Passwort1";
 			this->Passwort1->Size = System::Drawing::Size(173, 21);
@@ -201,7 +205,7 @@ namespace TwErgShop {
 			// 
 			// Passwort2
 			// 
-			this->Passwort2->Location = System::Drawing::Point(141, 67);
+			this->Passwort2->Location = System::Drawing::Point(141, 87);
 			this->Passwort2->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Passwort2->Name = L"Passwort2";
 			this->Passwort2->Size = System::Drawing::Size(173, 21);
@@ -210,7 +214,7 @@ namespace TwErgShop {
 			// 
 			// Vorname
 			// 
-			this->Vorname->Location = System::Drawing::Point(141, 102);
+			this->Vorname->Location = System::Drawing::Point(141, 122);
 			this->Vorname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Vorname->Name = L"Vorname";
 			this->Vorname->Size = System::Drawing::Size(173, 21);
@@ -218,7 +222,7 @@ namespace TwErgShop {
 			// 
 			// Nachname
 			// 
-			this->Nachname->Location = System::Drawing::Point(141, 127);
+			this->Nachname->Location = System::Drawing::Point(141, 147);
 			this->Nachname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Nachname->Name = L"Nachname";
 			this->Nachname->Size = System::Drawing::Size(173, 21);
@@ -226,7 +230,7 @@ namespace TwErgShop {
 			// 
 			// Telefonnr
 			// 
-			this->Telefonnr->Location = System::Drawing::Point(141, 152);
+			this->Telefonnr->Location = System::Drawing::Point(141, 172);
 			this->Telefonnr->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Telefonnr->Name = L"Telefonnr";
 			this->Telefonnr->Size = System::Drawing::Size(173, 21);
@@ -234,19 +238,40 @@ namespace TwErgShop {
 			// 
 			// Email
 			// 
-			this->Email->Location = System::Drawing::Point(141, 177);
+			this->Email->Location = System::Drawing::Point(141, 197);
 			this->Email->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Email->Name = L"Email";
 			this->Email->Size = System::Drawing::Size(173, 21);
 			this->Email->TabIndex = 53;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10));
+			this->label8->Location = System::Drawing::Point(20, 3);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(287, 19);
+			this->label8->TabIndex = 54;
+			this->label8->Text = L"Hier kannst Du deinen Account erstellen.";
+			// 
+			// panel1
+			// 
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel1->Location = System::Drawing::Point(-10, -57);
+			this->panel1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(430, 84);
+			this->panel1->TabIndex = 55;
 			// 
 			// uStore_Register
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(329, 247);
+			this->ClientSize = System::Drawing::Size(329, 266);
 			this->ControlBox = false;
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->Email);
 			this->Controls->Add(this->Telefonnr);
 			this->Controls->Add(this->Nachname);
@@ -269,7 +294,7 @@ namespace TwErgShop {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->MaximizeBox = false;
 			this->Name = L"uStore_Register";
-			this->Text = L"uStore_Register";
+			this->Text = L"Registrierung";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -281,13 +306,14 @@ private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::
 		 }
 private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
+			 //TODO: Es darf nichts leer sein
 			 if(Passwort1->Text == Passwort2->Text)
 			 {
-				 String^ tmp = ".txt";
-				 String^ fileName = Benutzername->Text + tmp;
+				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
+				 String^ tmp2 = ".txt";
+				 String^ fileName = tmp1 + Benutzername->Text + tmp2;
 
 				 StreamWriter^ sw = gcnew StreamWriter(fileName);
-				 //sw->WriteLine(Benutzername->Text);
 				 sw->WriteLine(Passwort1->Text);
 				 sw->WriteLine(Vorname->Text);
 				 sw->WriteLine(Nachname->Text);

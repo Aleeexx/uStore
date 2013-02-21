@@ -10,7 +10,7 @@ private:
 	String^ Telefonnr;
 	String^ Email;
 public:
-	CBenutzer();
+	CBenutzer(String^ , String^ , String^ , String^ , String^ , String^);
 	~CBenutzer();
 };
 

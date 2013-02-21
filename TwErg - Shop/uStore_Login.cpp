@@ -5,6 +5,7 @@
 #include "uStore_main.h"
 #include "uStore_Register.h"
 #include "Fehler.h"
+#include "Benutzer.h"
 
 using namespace TwErgShop;
 
@@ -22,18 +23,27 @@ int main(array<System::String ^> ^args)
 
 Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	String^ fileName = IDLogin->Text;
-	String^ tmp = ".txt";
+	String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
+	String^ tmp2 = ".txt";
+	String^ fileName = tmp1 + IDLogin->Text + tmp2;
 
 	//Wenn Datei vorhanden, Datei nicht leer und Passwort vorhanden
-	if(File::Exists(fileName + tmp))
+	if(File::Exists(fileName))
 	{
-		StreamReader^ sr = File::OpenText(fileName + tmp);
+		StreamReader^ sr = File::OpenText(fileName);
 		if((sr->ReadLine() == PWLogin->Text) && (sr->ReadLine() != nullptr))
 			{
+				sr->Close();
+
+				//Lege Benutzerobjekt an
+				StreamReader^ sr = File::OpenText(fileName);
+				CBenutzer^ user = gcnew CBenutzer(IDLogin->Text, sr->ReadLine(), sr->ReadLine(),
+					sr->ReadLine(), sr->ReadLine(), sr->ReadLine());
+				sr->Close();
+
 				//Starte Main Programm
 				Hide();
-				uStore_main ^ main = gcnew uStore_main();
+				uStore_main ^ main = gcnew uStore_main(user);
 				main->ShowDialog();
 				//Visible = true;
 				Close();
@@ -44,7 +54,6 @@ Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 			Fehler ^ fail = gcnew Fehler();
 			fail->ShowDialog();
 			}
-		sr->Close();
 	}
 	else
 		{
