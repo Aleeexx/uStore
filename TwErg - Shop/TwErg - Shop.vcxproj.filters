@@ -27,9 +27,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Login_Fehler.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="uStore_main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -54,6 +51,12 @@
     <ClCompile Include="Create_Artikel_Control.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="uStore_Register.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Fehler.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -63,9 +66,6 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="uStore_Login.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Login_Fehler.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="uStore_main.h">
@@ -89,6 +89,12 @@
     <ClInclude Include="Create_Artikel_Control.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="uStore_Register.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Fehler.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -99,16 +105,16 @@
     <EmbeddedResource Include="uStore_Login.resX">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login_Fehler.resx">
-      <Filter>Ressourcendateien</Filter>
-    </EmbeddedResource>
     <EmbeddedResource Include="uStore_main.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create_Shop.resx">
+    <EmbeddedResource Include="Create_Shop_Control.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create_Shop_Control.resx">
+    <EmbeddedResource Include="Create_Artikel_Control.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fehler.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
   </ItemGroup>

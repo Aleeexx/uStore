@@ -7,7 +7,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-
+using namespace System::IO;
 
 namespace TwErgShop {
 
@@ -321,6 +321,16 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 			 {
+				 String^ fileName = "textfile.txt";
+
+				 StreamWriter^ sw = gcnew StreamWriter(fileName);
+				 sw->WriteLine("A text file is born!");
+				 sw->Write("You can use WriteLine");
+				 sw->WriteLine("...or just Write");
+				 sw->WriteLine("and do {0} {1} output too.", "formatted", fileName);
+				 sw->WriteLine("You can also send non-text objects:");
+				 sw->WriteLine(DateTime::Now);
+				 sw->Close();
 				 ptrParent->Controls->Remove(this);
 			 }
 	private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)

@@ -24,8 +24,6 @@ namespace TwErgShop {
 			//
 		}
 
-		void ControlClose();
-
 	protected:
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.

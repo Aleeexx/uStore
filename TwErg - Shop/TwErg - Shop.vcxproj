@@ -93,7 +93,7 @@
     <ClCompile Include="Benutzer.cpp" />
     <ClCompile Include="Create_Artikel_Control.cpp" />
     <ClCompile Include="Create_Shop_Control.cpp" />
-    <ClCompile Include="Login_Fehler.cpp" />
+    <ClCompile Include="Fehler.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -101,6 +101,7 @@
     </ClCompile>
     <ClCompile Include="uStore_Login.cpp" />
     <ClCompile Include="uStore_main.cpp" />
+    <ClCompile Include="uStore_Register.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adresse.h" />
@@ -112,7 +113,7 @@
     <ClInclude Include="Create_Shop_Control.h">
       <FileType>CppControl</FileType>
     </ClInclude>
-    <ClInclude Include="Login_Fehler.h">
+    <ClInclude Include="Fehler.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Shop.h" />
@@ -122,6 +123,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="uStore_main.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="uStore_Register.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -135,8 +139,8 @@
     <EmbeddedResource Include="Create_Shop_Control.resx">
       <DependentUpon>Create_Shop_Control.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login_Fehler.resx">
-      <DependentUpon>Login_Fehler.h</DependentUpon>
+    <EmbeddedResource Include="Fehler.resx">
+      <DependentUpon>Fehler.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uStore_Login.resX">
       <DependentUpon>uStore_Login.h</DependentUpon>
@@ -144,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uStore_main.resx">
       <DependentUpon>uStore_main.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uStore_Register.resx">
+      <DependentUpon>uStore_Register.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

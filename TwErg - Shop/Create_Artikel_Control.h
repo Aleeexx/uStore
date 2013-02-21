@@ -61,32 +61,8 @@ namespace TwErgShop {
 	private: System::Windows::Forms::OpenFileDialog^  openPicture;
 
 
-			 
-
-
-
-
-
 
 	protected: 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	private:

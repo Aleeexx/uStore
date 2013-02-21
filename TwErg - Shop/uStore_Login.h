@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Login_Fehler.h"
-
 namespace TwErgShop {
 
 	using namespace System;
@@ -58,6 +56,7 @@ namespace TwErgShop {
 
 	private: System::Windows::Forms::Button^  Beenden;
 	private: System::Windows::Forms::Panel^  ButtonBorder;
+	private: System::Windows::Forms::Panel^  panel1;
 
 
 
@@ -93,6 +92,7 @@ namespace TwErgShop {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->Beenden = (gcnew System::Windows::Forms::Button());
 			this->ButtonBorder = (gcnew System::Windows::Forms::Panel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -198,6 +198,14 @@ namespace TwErgShop {
 			this->ButtonBorder->Size = System::Drawing::Size(362, 1);
 			this->ButtonBorder->TabIndex = 8;
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::Firebrick;
+			this->panel1->Location = System::Drawing::Point(109, 172);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(1, 48);
+			this->panel1->TabIndex = 9;
+			// 
 			// uStore_Login
 			// 
 			this->AcceptButton = this->Login;
@@ -207,6 +215,7 @@ namespace TwErgShop {
 			this->CancelButton = this->Beenden;
 			this->ClientSize = System::Drawing::Size(328, 219);
 			this->ControlBox = false;
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->ButtonBorder);
 			this->Controls->Add(this->Beenden);
 			this->Controls->Add(this->pictureBox1);
