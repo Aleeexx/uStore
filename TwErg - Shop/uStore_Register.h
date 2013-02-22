@@ -55,6 +55,8 @@ namespace TwErgShop {
 	private: System::Windows::Forms::TextBox^  Email;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::PictureBox^  freiBelegt;
+
 
 
 
@@ -99,6 +101,8 @@ namespace TwErgShop {
 			this->Email = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->freiBelegt = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegt))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// erstellenAbbrechen
@@ -191,8 +195,9 @@ namespace TwErgShop {
 			this->Benutzername->Location = System::Drawing::Point(141, 37);
 			this->Benutzername->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Benutzername->Name = L"Benutzername";
-			this->Benutzername->Size = System::Drawing::Size(173, 21);
+			this->Benutzername->Size = System::Drawing::Size(146, 21);
 			this->Benutzername->TabIndex = 47;
+			this->Benutzername->TextChanged += gcnew System::EventHandler(this, &uStore_Register::OnChangeName);
 			// 
 			// Passwort1
 			// 
@@ -263,6 +268,15 @@ namespace TwErgShop {
 			this->panel1->Size = System::Drawing::Size(430, 84);
 			this->panel1->TabIndex = 55;
 			// 
+			// freiBelegt
+			// 
+			this->freiBelegt->Location = System::Drawing::Point(293, 37);
+			this->freiBelegt->Name = L"freiBelegt";
+			this->freiBelegt->Size = System::Drawing::Size(21, 21);
+			this->freiBelegt->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->freiBelegt->TabIndex = 56;
+			this->freiBelegt->TabStop = false;
+			// 
 			// uStore_Register
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
@@ -270,6 +284,7 @@ namespace TwErgShop {
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(329, 266);
 			this->ControlBox = false;
+			this->Controls->Add(this->freiBelegt);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->Email);
@@ -295,6 +310,7 @@ namespace TwErgShop {
 			this->MaximizeBox = false;
 			this->Name = L"uStore_Register";
 			this->Text = L"Registrierung";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegt))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -329,6 +345,19 @@ private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs
 				 Passwort1->Text = "";
 				 Passwort2->Text = "";
 			 }
+		 }
+private: System::Void OnChangeName(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 if(Benutzername->Text != "")
+			 {
+				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
+				 String^ tmp2 = ".txt";
+				 String^ fileName = tmp1 + Benutzername->Text + tmp2;
+
+				 if(File::Exists(fileName)) freiBelegt->ImageLocation = "belegt.png";
+				 else freiBelegt->ImageLocation = "frei.png";
+			 }
+			 else freiBelegt->ImageLocation = "";
 		 }
 };
 }
