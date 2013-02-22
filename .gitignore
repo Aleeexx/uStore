@@ -1,5 +1,6 @@
 uStore.sdf
-uStore.suo
+*.suo
+*.opensdf
 
 Debug
 Release
