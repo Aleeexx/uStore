@@ -35,7 +35,8 @@ Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 	if(File::Exists(fileName))
 	{
 		StreamReader^ sr = File::OpenText(fileName);
-		if((sr->ReadLine() == PWLogin->Text) && (sr->ReadLine() != nullptr))
+		if((sr->ReadLine() == String::Format("{0}", PWLogin->Text->GetHashCode())) 
+			&& (sr->ReadLine() != nullptr))
 			{
 				sr->Close();
 
