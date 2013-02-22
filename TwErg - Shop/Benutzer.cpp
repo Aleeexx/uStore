@@ -14,5 +14,30 @@ CBenutzer::CBenutzer(String^ tmpName, String^ tmpPW, String^ tmpVorname,
 }
 CBenutzer::~CBenutzer()
 {
+	
+}
 
+String^ CBenutzer::getName()
+{
+	return Benutzername;
+}
+String^ CBenutzer::getVorname()
+{
+	return Vorname;
+}
+String^ CBenutzer::getNachname()
+{
+	return Nachname;
+}
+String^ CBenutzer::getTelefonnr()
+{
+	return Telefonnr;
+}
+String^ CBenutzer::getEmail()
+{
+	return Email;
+}
+String^ CBenutzer::getShopname()
+{
+	return Shopname;
 }

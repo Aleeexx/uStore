@@ -1,5 +1,6 @@
 #pragma once
 #include "uStore_main.h"
+#include "Benutzer.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -17,16 +18,15 @@ namespace TwErgShop {
 	public ref class Create_Shop_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Create_Shop_Control(uStore_main^ tmpParent)
+		Create_Shop_Control(uStore_main^ tmpParent, CBenutzer^ tmpUser)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
 			ptrParent = tmpParent;
+			user = tmpUser;
 		}
-		//event EventHandler^ OnClickAbbrechen;
-
 
 	protected:
 		/// <summary>
@@ -41,12 +41,13 @@ namespace TwErgShop {
 		}
 	private:
 		uStore_main^ ptrParent;
+		CBenutzer^ user;
 
 
-	private: System::Windows::Forms::GroupBox^  groupBox1;
 
-	private: System::Windows::Forms::RadioButton^  kommerziell;
-	private: System::Windows::Forms::RadioButton^  privat;
+
+
+
 	private: System::Windows::Forms::TextBox^  Ort;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::TextBox^  PLZ;
@@ -77,9 +78,6 @@ namespace TwErgShop {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->kommerziell = (gcnew System::Windows::Forms::RadioButton());
-			this->privat = (gcnew System::Windows::Forms::RadioButton());
 			this->Ort = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->PLZ = (gcnew System::Windows::Forms::TextBox());
@@ -96,49 +94,12 @@ namespace TwErgShop {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->erstellenAbbrechen = (gcnew System::Windows::Forms::Button());
-			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->kommerziell);
-			this->groupBox1->Controls->Add(this->privat);
-			this->groupBox1->Location = System::Drawing::Point(12, 65);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->groupBox1->Size = System::Drawing::Size(311, 44);
-			this->groupBox1->TabIndex = 36;
-			this->groupBox1->TabStop = false;
-			// 
-			// kommerziell
-			// 
-			this->kommerziell->AutoSize = true;
-			this->kommerziell->Location = System::Drawing::Point(138, 18);
-			this->kommerziell->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->kommerziell->Name = L"kommerziell";
-			this->kommerziell->Size = System::Drawing::Size(88, 20);
-			this->kommerziell->TabIndex = 6;
-			this->kommerziell->TabStop = true;
-			this->kommerziell->Text = L"Kommerziell";
-			this->kommerziell->UseVisualStyleBackColor = true;
-			// 
-			// privat
-			// 
-			this->privat->AutoSize = true;
-			this->privat->Location = System::Drawing::Point(9, 18);
-			this->privat->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->privat->Name = L"privat";
-			this->privat->Size = System::Drawing::Size(58, 20);
-			this->privat->TabIndex = 5;
-			this->privat->TabStop = true;
-			this->privat->Text = L"Privat";
-			this->privat->UseVisualStyleBackColor = true;
 			// 
 			// Ort
 			// 
 			this->Ort->Enabled = false;
-			this->Ort->Location = System::Drawing::Point(237, 183);
+			this->Ort->Location = System::Drawing::Point(237, 125);
 			this->Ort->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Ort->Name = L"Ort";
 			this->Ort->Size = System::Drawing::Size(86, 21);
@@ -147,7 +108,7 @@ namespace TwErgShop {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(192, 187);
+			this->label8->Location = System::Drawing::Point(188, 128);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(28, 16);
 			this->label8->TabIndex = 34;
@@ -156,7 +117,7 @@ namespace TwErgShop {
 			// PLZ
 			// 
 			this->PLZ->Enabled = false;
-			this->PLZ->Location = System::Drawing::Point(62, 183);
+			this->PLZ->Location = System::Drawing::Point(62, 125);
 			this->PLZ->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->PLZ->Name = L"PLZ";
 			this->PLZ->Size = System::Drawing::Size(86, 21);
@@ -165,7 +126,7 @@ namespace TwErgShop {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(17, 187);
+			this->label6->Location = System::Drawing::Point(17, 128);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(32, 16);
 			this->label6->TabIndex = 32;
@@ -174,7 +135,7 @@ namespace TwErgShop {
 			// Strassenname
 			// 
 			this->Strassenname->Enabled = false;
-			this->Strassenname->Location = System::Drawing::Point(149, 150);
+			this->Strassenname->Location = System::Drawing::Point(149, 95);
 			this->Strassenname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Strassenname->Name = L"Strassenname";
 			this->Strassenname->Size = System::Drawing::Size(173, 21);
@@ -183,7 +144,7 @@ namespace TwErgShop {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(17, 154);
+			this->label5->Location = System::Drawing::Point(17, 98);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(84, 16);
 			this->label5->TabIndex = 30;
@@ -191,7 +152,7 @@ namespace TwErgShop {
 			// 
 			// erstellen
 			// 
-			this->erstellen->Location = System::Drawing::Point(252, 292);
+			this->erstellen->Location = System::Drawing::Point(252, 247);
 			this->erstellen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellen->Name = L"erstellen";
 			this->erstellen->Size = System::Drawing::Size(71, 28);
@@ -202,7 +163,7 @@ namespace TwErgShop {
 			// 
 			// Tags
 			// 
-			this->Tags->Location = System::Drawing::Point(149, 217);
+			this->Tags->Location = System::Drawing::Point(149, 155);
 			this->Tags->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Tags->Multiline = true;
 			this->Tags->Name = L"Tags";
@@ -213,7 +174,7 @@ namespace TwErgShop {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(17, 220);
+			this->label4->Location = System::Drawing::Point(17, 177);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(35, 16);
 			this->label4->TabIndex = 27;
@@ -222,7 +183,7 @@ namespace TwErgShop {
 			// Telefonnr
 			// 
 			this->Telefonnr->Enabled = false;
-			this->Telefonnr->Location = System::Drawing::Point(149, 117);
+			this->Telefonnr->Location = System::Drawing::Point(149, 65);
 			this->Telefonnr->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Telefonnr->Name = L"Telefonnr";
 			this->Telefonnr->Size = System::Drawing::Size(173, 21);
@@ -231,7 +192,7 @@ namespace TwErgShop {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(17, 121);
+			this->label3->Location = System::Drawing::Point(17, 68);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 16);
 			this->label3->TabIndex = 25;
@@ -239,7 +200,7 @@ namespace TwErgShop {
 			// 
 			// Shopname
 			// 
-			this->Shopname->Location = System::Drawing::Point(149, 39);
+			this->Shopname->Location = System::Drawing::Point(149, 35);
 			this->Shopname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Shopname->Name = L"Shopname";
 			this->Shopname->Size = System::Drawing::Size(173, 21);
@@ -248,7 +209,7 @@ namespace TwErgShop {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(17, 43);
+			this->label2->Location = System::Drawing::Point(17, 38);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(71, 16);
 			this->label2->TabIndex = 22;
@@ -275,7 +236,7 @@ namespace TwErgShop {
 			// 
 			// erstellenAbbrechen
 			// 
-			this->erstellenAbbrechen->Location = System::Drawing::Point(150, 292);
+			this->erstellenAbbrechen->Location = System::Drawing::Point(150, 247);
 			this->erstellenAbbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellenAbbrechen->Name = L"erstellenAbbrechen";
 			this->erstellenAbbrechen->Size = System::Drawing::Size(92, 28);
@@ -290,7 +251,6 @@ namespace TwErgShop {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->erstellenAbbrechen);
-			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->Ort);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->PLZ);
@@ -311,9 +271,7 @@ namespace TwErgShop {
 			this->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"Create_Shop_Control";
-			this->Size = System::Drawing::Size(339, 325);
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
+			this->Size = System::Drawing::Size(339, 296);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -321,22 +279,27 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 			 {
-				 String^ fileName = "textfile.txt";
-
+				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Shops";
+				 String^ tmp2 = ".txt";
+				 String^ fileName = tmp1 + "\\shop_" + Shopname->Text + tmp2;
+				 if(!Directory::Exists(tmp1))
+				 {
+					 Directory::CreateDirectory(tmp1);
+				 }
 				 StreamWriter^ sw = gcnew StreamWriter(fileName);
-				 sw->WriteLine("A text file is born!");
-				 sw->Write("You can use WriteLine");
-				 sw->WriteLine("...or just Write");
-				 sw->WriteLine("and do {0} {1} output too.", "formatted", fileName);
-				 sw->WriteLine("You can also send non-text objects:");
-				 sw->WriteLine(DateTime::Now);
+				 sw->WriteLine(Shopname->Text);
+				 sw->WriteLine(user->getName());
+				 sw->WriteLine(Tags->Text);
+				 sw->WriteLine(user->getTelefonnr());
+				 sw->WriteLine(Strassenname->Text);
+				 sw->WriteLine(PLZ->Text);
+				 sw->WriteLine(Ort->Text);
 				 sw->Close();
 				 ptrParent->Controls->Remove(this);
 			 }
 	private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 			 {
 				 ptrParent->Controls->Remove(this);
-				 
 				  //FindForm()->Controls->Remove(this);
 			 }
 };

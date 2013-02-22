@@ -23,10 +23,14 @@ int main(array<System::String ^> ^args)
 
 Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
+	String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Benutzer";
 	String^ tmp2 = ".txt";
-	String^ fileName = tmp1 + IDLogin->Text + tmp2;
-
+	String^ fileName = tmp1 + "\\user_" + IDLogin->Text + tmp2;
+	//Wenn Ordner nicht vorhanden
+	if(!Directory::Exists(tmp1))
+	{
+		Directory::CreateDirectory(tmp1);
+	}
 	//Wenn Datei vorhanden, Datei nicht leer und Passwort vorhanden
 	if(File::Exists(fileName))
 	{
@@ -55,12 +59,12 @@ Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 			fail->ShowDialog();
 			}
 	}
-	else
-		{
-			//Login Fehler
-			Fehler ^ fail = gcnew Fehler();
-			fail->ShowDialog();
-		}
+		else
+			{
+				//Login Fehler
+				Fehler ^ fail = gcnew Fehler();
+				fail->ShowDialog();
+			}
 }
 Void uStore_Login::Beenden_Click(System::Object^  sender, System::EventArgs^  e) 
 {

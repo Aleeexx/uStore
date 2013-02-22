@@ -8,7 +8,7 @@ namespace TwErgShop
 	Void uStore_main::ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
-			Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control(this);
+			Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control(this, user);
 			//Position des UserControls
 			ShopControl->Location = Point(200, 90);
 			//Hinzufügen zum ControlCollective

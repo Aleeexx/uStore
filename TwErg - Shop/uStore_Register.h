@@ -55,7 +55,9 @@ namespace TwErgShop {
 	private: System::Windows::Forms::TextBox^  Email;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Panel^  panel1;
-	private: System::Windows::Forms::PictureBox^  freiBelegt;
+	private: System::Windows::Forms::PictureBox^  freiBelegtName;
+	private: System::Windows::Forms::PictureBox^  freiBelegtEmail;
+
 
 
 
@@ -101,8 +103,10 @@ namespace TwErgShop {
 			this->Email = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->freiBelegt = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegt))->BeginInit();
+			this->freiBelegtName = (gcnew System::Windows::Forms::PictureBox());
+			this->freiBelegtEmail = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegtName))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegtEmail))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// erstellenAbbrechen
@@ -243,7 +247,7 @@ namespace TwErgShop {
 			// 
 			// Email
 			// 
-			this->Email->Location = System::Drawing::Point(141, 197);
+			this->Email->Location = System::Drawing::Point(114, 197);
 			this->Email->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Email->Name = L"Email";
 			this->Email->Size = System::Drawing::Size(173, 21);
@@ -268,14 +272,23 @@ namespace TwErgShop {
 			this->panel1->Size = System::Drawing::Size(430, 84);
 			this->panel1->TabIndex = 55;
 			// 
-			// freiBelegt
+			// freiBelegtName
 			// 
-			this->freiBelegt->Location = System::Drawing::Point(293, 37);
-			this->freiBelegt->Name = L"freiBelegt";
-			this->freiBelegt->Size = System::Drawing::Size(21, 21);
-			this->freiBelegt->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->freiBelegt->TabIndex = 56;
-			this->freiBelegt->TabStop = false;
+			this->freiBelegtName->Location = System::Drawing::Point(293, 37);
+			this->freiBelegtName->Name = L"freiBelegtName";
+			this->freiBelegtName->Size = System::Drawing::Size(21, 21);
+			this->freiBelegtName->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->freiBelegtName->TabIndex = 56;
+			this->freiBelegtName->TabStop = false;
+			// 
+			// freiBelegtEmail
+			// 
+			this->freiBelegtEmail->Location = System::Drawing::Point(293, 197);
+			this->freiBelegtEmail->Name = L"freiBelegtEmail";
+			this->freiBelegtEmail->Size = System::Drawing::Size(21, 21);
+			this->freiBelegtEmail->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->freiBelegtEmail->TabIndex = 57;
+			this->freiBelegtEmail->TabStop = false;
 			// 
 			// uStore_Register
 			// 
@@ -284,7 +297,8 @@ namespace TwErgShop {
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(329, 266);
 			this->ControlBox = false;
-			this->Controls->Add(this->freiBelegt);
+			this->Controls->Add(this->freiBelegtEmail);
+			this->Controls->Add(this->freiBelegtName);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->Email);
@@ -311,7 +325,8 @@ namespace TwErgShop {
 			this->Name = L"uStore_Register";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Registrierung";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegt))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegtName))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegtEmail))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -323,7 +338,7 @@ private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::
 		 }
 private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 if(freiBelegt->ImageLocation == "frei.png")
+			 if(freiBelegtName->ImageLocation == "frei.png")
 			 {
 			 if(Benutzername->Text != "")
 			 {
@@ -337,10 +352,13 @@ private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs
 			 {
 			 if((Passwort1->Text != "" && Passwort2->Text != "") && (Passwort1->Text == Passwort2->Text))
 			 {
-				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
+				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Benutzer";
 				 String^ tmp2 = ".txt";
-				 String^ fileName = tmp1 + Benutzername->Text + tmp2;
-
+				 String^ fileName = tmp1 + "\\user_" + Benutzername->Text + tmp2;
+				 if(!Directory::Exists(tmp1))
+				 {
+					Directory::CreateDirectory(tmp1);
+				 }
 				 StreamWriter^ sw = gcnew StreamWriter(fileName);
 				 sw->WriteLine(Passwort1->Text);
 				 sw->WriteLine(Vorname->Text);
@@ -410,14 +428,14 @@ private: System::Void OnChangeName(System::Object^  sender, System::EventArgs^  
 		 {
 			 if(Benutzername->Text != "")
 			 {
-				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
+				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Benutzer";
 				 String^ tmp2 = ".txt";
-				 String^ fileName = tmp1 + Benutzername->Text + tmp2;
+				 String^ fileName = tmp1 + "\\user_" + Benutzername->Text + tmp2;
 
-				 if(File::Exists(fileName)) freiBelegt->ImageLocation = "belegt.png";
-				 else freiBelegt->ImageLocation = "frei.png";
+				 if(File::Exists(fileName)) freiBelegtName->ImageLocation = "belegt.png";
+				 else freiBelegtName->ImageLocation = "frei.png";
 			 }
-			 else freiBelegt->ImageLocation = "";
+			 else freiBelegtName->ImageLocation = "";
 		 }
 };
 }
