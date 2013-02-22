@@ -98,7 +98,6 @@ namespace TwErgShop {
 			// 
 			// Ort
 			// 
-			this->Ort->Enabled = false;
 			this->Ort->Location = System::Drawing::Point(237, 125);
 			this->Ort->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Ort->Name = L"Ort";
@@ -116,7 +115,6 @@ namespace TwErgShop {
 			// 
 			// PLZ
 			// 
-			this->PLZ->Enabled = false;
 			this->PLZ->Location = System::Drawing::Point(62, 125);
 			this->PLZ->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->PLZ->Name = L"PLZ";
@@ -134,7 +132,6 @@ namespace TwErgShop {
 			// 
 			// Strassenname
 			// 
-			this->Strassenname->Enabled = false;
 			this->Strassenname->Location = System::Drawing::Point(149, 95);
 			this->Strassenname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Strassenname->Name = L"Strassenname";
@@ -182,7 +179,6 @@ namespace TwErgShop {
 			// 
 			// Telefonnr
 			// 
-			this->Telefonnr->Enabled = false;
 			this->Telefonnr->Location = System::Drawing::Point(149, 65);
 			this->Telefonnr->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Telefonnr->Name = L"Telefonnr";
@@ -271,7 +267,7 @@ namespace TwErgShop {
 			this->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"Create_Shop_Control";
-			this->Size = System::Drawing::Size(339, 296);
+			this->Size = System::Drawing::Size(339, 354);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
