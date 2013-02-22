@@ -268,6 +268,7 @@ namespace TwErgShop {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"Create_Shop_Control";
 			this->Size = System::Drawing::Size(339, 354);
+			this->Load += gcnew System::EventHandler(this, &Create_Shop_Control::Create_Shop_Control_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -275,13 +276,12 @@ namespace TwErgShop {
 #pragma endregion
 	private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 			 {
-				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Shops";
+				 //Pfad Zusammensetzung
+				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Shops";
 				 String^ tmp2 = ".txt";
 				 String^ fileName = tmp1 + "\\shop_" + Shopname->Text + tmp2;
-				 if(!Directory::Exists(tmp1))
-				 {
-					 Directory::CreateDirectory(tmp1);
-				 }
+
+				 //Erstelle und schreibe in shop_Shopname in %Appdata%\uStore\Shops
 				 StreamWriter^ sw = gcnew StreamWriter(fileName);
 				 sw->WriteLine(Shopname->Text);
 				 sw->WriteLine(user->getName());
@@ -291,12 +291,25 @@ namespace TwErgShop {
 				 sw->WriteLine(PLZ->Text);
 				 sw->WriteLine(Ort->Text);
 				 sw->Close();
+				 
+				 //Schließe UserControl
 				 ptrParent->Controls->Remove(this);
 			 }
 	private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 			 {
+				 //Schließe UserControl
 				 ptrParent->Controls->Remove(this);
-				  //FindForm()->Controls->Remove(this);
+				 //FindForm()->Controls->Remove(this);
 			 }
+	private: System::Void Create_Shop_Control_Load(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 //Erstelle %AppData%\uStore\Shops bei LoadUp von Create_Shop_Control,
+			 //wenn noch nicht vorhanden
+			 String^ tmp = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Shops";
+			 if(!Directory::Exists(tmp))
+				 {
+					 Directory::CreateDirectory(tmp);
+				 }
+		 }
 };
 }

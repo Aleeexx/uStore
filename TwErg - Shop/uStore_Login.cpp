@@ -23,10 +23,11 @@ int main(array<System::String ^> ^args)
 
 Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Benutzer";
+	//Pfad Zusammensetzung f¸r user_Benutzername.txt
+	String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Benutzer";
 	String^ tmp2 = ".txt";
 	String^ fileName = tmp1 + "\\user_" + IDLogin->Text + tmp2;
-	//Wenn Ordner nicht vorhanden
+	//Erstelle Ordner, wenn noch nicht vorhanden
 	if(!Directory::Exists(tmp1))
 	{
 		Directory::CreateDirectory(tmp1);
@@ -35,13 +36,14 @@ Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 	if(File::Exists(fileName))
 	{
 		StreamReader^ sr = File::OpenText(fileName);
-		if((sr->ReadLine() == String::Format("{0}", PWLogin->Text->GetHashCode())) 
-			&& (sr->ReadLine() != nullptr))
+		if(sr->ReadLine() == String::Format("{0}", PWLogin->Text->GetHashCode()))
 			{
 				sr->Close();
 
 				//Lege Benutzerobjekt an
 				StreamReader^ sr = File::OpenText(fileName);
+				//Lies Daten aus user_Benutzername.txt ein und speichere sie in dem Objekt
+				//des angemeldeten Benutzers
 				CBenutzer^ user = gcnew CBenutzer(IDLogin->Text, sr->ReadLine(), sr->ReadLine(),
 					sr->ReadLine(), sr->ReadLine(), sr->ReadLine());
 				sr->Close();
@@ -69,19 +71,15 @@ Void uStore_Login::Login_Click(System::Object^  sender, System::EventArgs^  e)
 }
 Void uStore_Login::Beenden_Click(System::Object^  sender, System::EventArgs^  e) 
 {
-	 
+	//Schlieﬂe uStore_Login
 	Close();
 }
 Void uStore_Login::Register_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 //ClientSize = System::Drawing::Size(328, 300);
-			 //Login->Location = System::Drawing::Point(-1, 253);
-			 //Register->Location = System::Drawing::Point(108, 253);
-			 //Beenden->Location = System::Drawing::Point(218, 253);
-			 //ButtonBorder->Location = System::Drawing::Point(-1, 253);
-
+			 //Starte eine neue Instanz von uStore_Register, vestecke uStore_Login
 			 Hide();
 			 uStore_Register^ Register = gcnew uStore_Register();
 			 Register->ShowDialog();
+			 //Zeige uStore_Login nach schlieﬂen von uStore_Register wieder
 			 Visible = true;
 		 }

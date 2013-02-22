@@ -96,13 +96,14 @@ namespace TwErgShop {
 			this->OK->TabIndex = 1;
 			this->OK->Text = L"Sorry!";
 			this->OK->UseVisualStyleBackColor = true;
+			this->OK->Click += gcnew System::EventHandler(this, &Fehler::OK_Click);
 			// 
-			// Login_Fehler
+			// Fehler
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->OK;
-			this->ClientSize = System::Drawing::Size(319, 136);
+			this->ClientSize = System::Drawing::Size(315, 132);
 			this->ControlBox = false;
 			this->Controls->Add(this->OK);
 			this->Controls->Add(this->ups);
@@ -120,8 +121,11 @@ namespace TwErgShop {
 			this->TopMost = true;
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
+private: System::Void OK_Click(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 //Butten OK hat Cancel-Button Eigenschaft
+		 }
 };
 }

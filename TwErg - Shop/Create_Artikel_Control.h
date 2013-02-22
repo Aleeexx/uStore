@@ -7,6 +7,7 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace System::IO;
 
 
 namespace TwErgShop {
@@ -20,9 +21,8 @@ namespace TwErgShop {
 		Create_Artikel_Control(uStore_main^ tmp)
 		{
 			InitializeComponent();
-			//
-			//TODO: Konstruktorcode hier hinzufügen.
-			//
+			
+			//Objekt des angemeldeten Users
 			ptrParent = tmp;
 		}
 	protected:
@@ -37,7 +37,9 @@ namespace TwErgShop {
 			}
 		}
 	private:
+		//Objekt des angemeldeten Users
 		uStore_main^ ptrParent;
+		//Pfad für das Bild
 		String^ Pfad;
 
 	private: System::Windows::Forms::Button^  erstellenAbbrechen;
@@ -50,8 +52,9 @@ namespace TwErgShop {
 
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::TextBox^  Artikelname;
+	private: System::Windows::Forms::Label^  artName;
 
-	private: System::Windows::Forms::Label^  label2;
+
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Label^  label5;
@@ -85,7 +88,7 @@ namespace TwErgShop {
 			this->Preis = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->Artikelname = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->artName = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -161,15 +164,16 @@ namespace TwErgShop {
 			this->Artikelname->Name = L"Artikelname";
 			this->Artikelname->Size = System::Drawing::Size(173, 21);
 			this->Artikelname->TabIndex = 4;
+			this->Artikelname->TextChanged += gcnew System::EventHandler(this, &Create_Artikel_Control::OnChangeArtName);
 			// 
-			// label2
+			// artName
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(17, 43);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(73, 16);
-			this->label2->TabIndex = 39;
-			this->label2->Text = L"Artikelname:";
+			this->artName->AutoSize = true;
+			this->artName->Location = System::Drawing::Point(17, 43);
+			this->artName->Name = L"artName";
+			this->artName->Size = System::Drawing::Size(73, 16);
+			this->artName->TabIndex = 39;
+			this->artName->Text = L"Artikelname:";
 			// 
 			// label1
 			// 
@@ -239,7 +243,7 @@ namespace TwErgShop {
 			this->Controls->Add(this->Preis);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->Artikelname);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->artName);
 			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
@@ -256,22 +260,62 @@ namespace TwErgShop {
 #pragma endregion
 private: System::Void btnOpen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 //Startorder: Eigene Bilder
-			  openPicture->InitialDirectory = Environment::GetFolderPath(
-				  Environment::SpecialFolder::MyPictures);
+			 if(Artikelname->Text != "")
+			 {
+				 //Startorder: Eigene Bilder
+				  openPicture->InitialDirectory = Environment::GetFolderPath(
+					  Environment::SpecialFolder::MyPictures);
 			  
-			  openPicture->ShowDialog();
-			  Bild->BackColor = System::Drawing::Color::White;
-			  Pfad = openPicture->FileName;
-			  Bild->ImageLocation = Pfad;
+				  openPicture->ShowDialog();
+				  //Ausgewähltes Bild in PictureBox
+				  Bild->BackColor = System::Drawing::Color::White;
+				  Pfad = openPicture->FileName;
+				  Bild->ImageLocation = Pfad;
+			 }
+			 else
+			 {
+				//Wenn artName leer ist Schrift = rot und Button öffnet nicht
+				artName->ForeColor = Color::Red;
+			 }
 		 }
 private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
+			 //UserControl schließen
 			 ptrParent->Controls->Remove(this);
 		 }
 private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 ptrParent->Controls->Remove(this);
+			 // art_artName.txt in %Appdata%\uStore\Artikel anlegen
+			 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Artikel";
+			 String^ tmp2 = ".txt";
+			 String^ fileName = tmp1 + "\\art_" + Artikelname->Text + tmp2;
+			 if(!Directory::Exists(tmp1))
+			 {
+		 		 Directory::CreateDirectory(tmp1);
+	 		 }
+			 StreamWriter^ sw = gcnew StreamWriter(fileName);
+			 sw->WriteLine(Artikelname->Text);
+			 sw->Close();
+
+			 //%Appdata%\uStore\Bilder anlegen
+			  String^ tmp = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+					  + "\\uStore\\Bilder";
+			  if(!Directory::Exists(tmp))
+			  {
+		 		Directory::CreateDirectory(tmp);
+	 		  }
+			  //Bild kopieren rename zu artName.png
+			  File::Copy(Bild->ImageLocation, Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) 
+				  + "\\uStore\\Bilder\\" + Artikelname->Text + ".png");
+			 
+			  //UserControl schließen
+			  ptrParent->Controls->Remove(this);
+		 }
+private: System::Void OnChangeArtName(System::Object^  sender, System::EventArgs^  e)
+		 {
+			 //Wenn artName geändert wird wieder auf schwarz setzen, falls
+			 //Bild Button geklickt wurde und Feld leer war (denn dann lable = rot)
+			 artName->ForeColor = Color::Black;
 		 }
 };
 }
