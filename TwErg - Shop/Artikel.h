@@ -5,16 +5,15 @@ ref class CArtikel
 {
 private:
 	String^ Artikelname;
-	String^ Firma;
+	String^ Preis;
 	String^ Beschreibung;
-	String^ Bild;
 	String^ BildPfad;
+	String^ Verkaeufer;
 
-	float Preis;
 	int Anzahl;
 	bool neuGebraucht;
 
 public:
-	CArtikel();
+	CArtikel(String^, String^, String^, String^, String^);
 	~CArtikel();
 };

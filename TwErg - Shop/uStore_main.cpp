@@ -17,7 +17,7 @@ namespace TwErgShop
 	Void uStore_main::ArtikelVerkaufen_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
-			Create_Artikel_Control^ ArtikelControl = gcnew Create_Artikel_Control(this);
+			Create_Artikel_Control^ ArtikelControl = gcnew Create_Artikel_Control(this, user);
 			//Position des UserControls
 			ArtikelControl->Location = Point(200, 90);
 			//Hinzufügen zum ControlCollective

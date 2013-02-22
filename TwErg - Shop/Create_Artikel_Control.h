@@ -1,5 +1,7 @@
 #pragma once
 #include "uStore_main.h"
+#include "Benutzer.h"
+#include "Artikel.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -18,11 +20,13 @@ namespace TwErgShop {
 	public ref class Create_Artikel_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Create_Artikel_Control(uStore_main^ tmp)
+		Create_Artikel_Control(uStore_main^ tmp, CBenutzer^ tmpUser)
 		{
 			InitializeComponent();
 			
 			//Objekt des angemeldeten Users
+			user = tmpUser;
+			//Zeiger auf uStore_main
 			ptrParent = tmp;
 		}
 	protected:
@@ -37,10 +41,12 @@ namespace TwErgShop {
 			}
 		}
 	private:
-		//Objekt des angemeldeten Users
+		//Zeiger auf uStore_main
 		uStore_main^ ptrParent;
 		//Pfad für das Bild
 		String^ Pfad;
+		//Objekt des angemeldeten Nutzers
+		CBenutzer^ user;
 
 	private: System::Windows::Forms::Button^  erstellenAbbrechen;
 
@@ -285,19 +291,7 @@ private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::
 		 }
 private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 // art_artName.txt in %Appdata%\uStore\Artikel anlegen
-			 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Artikel";
-			 String^ tmp2 = ".txt";
-			 String^ fileName = tmp1 + "\\art_" + Artikelname->Text + tmp2;
-			 if(!Directory::Exists(tmp1))
-			 {
-		 		 Directory::CreateDirectory(tmp1);
-	 		 }
-			 StreamWriter^ sw = gcnew StreamWriter(fileName);
-			 sw->WriteLine(Artikelname->Text);
-			 sw->Close();
-
-			 //%Appdata%\uStore\Bilder anlegen
+			  //%Appdata%\uStore\Bilder anlegen
 			  String^ tmp = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
 					  + "\\uStore\\Bilder";
 			  if(!Directory::Exists(tmp))
@@ -306,10 +300,30 @@ private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs
 	 		  }
 			  //Bild kopieren rename zu artName.png
 			  File::Copy(Bild->ImageLocation, Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) 
-				  + "\\uStore\\Bilder\\" + Artikelname->Text + ".png");
+				  + "\\uStore\\Bilder\\" + Artikelname->Text + ".png", true);
 			 
-			  //UserControl schließen
-			  ptrParent->Controls->Remove(this);
+			  // art_artName.txt in %Appdata%\uStore\Artikel anlegen
+			 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Artikel";
+			 String^ tmp2 = ".txt";
+			 String^ fileName = tmp1 + "\\art_" + Artikelname->Text + tmp2;
+			 if(!Directory::Exists(tmp1))
+			 {
+		 		 Directory::CreateDirectory(tmp1);
+	 		 }
+			 //In die Datei schreiben
+			 StreamWriter^ sw = gcnew StreamWriter(fileName);
+			 sw->WriteLine(Artikelname->Text);
+			 sw->WriteLine(Preis->Text);
+			 sw->WriteLine(Beschreibung->Text);
+			 sw->WriteLine("{0}\\{1}.png", tmp, Artikelname->Text);
+			 sw->Close();
+			 
+			 //Artikelobjekt anlegen, füllen und in Liste von Benutzer einfügen
+			 CArtikel^ art = gcnew CArtikel(Artikelname->Text, Preis->Text, Beschreibung->Text, tmp + Artikelname->Text + ".png", user->getName());
+			 //user->artList->Add(art);
+
+			 //UserControl schließen
+			 ptrParent->Controls->Remove(this);
 		 }
 private: System::Void OnChangeArtName(System::Object^  sender, System::EventArgs^  e)
 		 {
