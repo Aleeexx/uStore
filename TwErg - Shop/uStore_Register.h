@@ -309,6 +309,7 @@ namespace TwErgShop {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->MaximizeBox = false;
 			this->Name = L"uStore_Register";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Registrierung";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->freiBelegt))->EndInit();
 			this->ResumeLayout(false);
@@ -322,8 +323,19 @@ private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::
 		 }
 private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
-			 //TODO: Es darf nichts leer sein
-			 if(Passwort1->Text == Passwort2->Text)
+			 if(freiBelegt->ImageLocation == "frei.png")
+			 {
+			 if(Benutzername->Text != "")
+			 {
+		 	 if(Vorname->Text != "")
+			 {
+			 if(Nachname->Text != "")
+			 {
+			 if(Telefonnr->Text != "")
+			 {
+			 if(Email->Text != "")
+			 {
+			 if((Passwort1->Text != "" && Passwort2->Text != "") && (Passwort1->Text == Passwort2->Text))
 			 {
 				 String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\";
 				 String^ tmp2 = ".txt";
@@ -337,6 +349,54 @@ private: System::Void erstellen_Click(System::Object^  sender, System::EventArgs
 				 sw->WriteLine(Email->Text);
 				 sw->Close();
 				 Close();
+			 }
+			 else
+			 {
+				 Fehler^ fail = gcnew Fehler();
+				 fail->ShowDialog();
+				 Passwort1->Text = "";
+				 Passwort2->Text = "";
+			 }
+			 }
+			 else
+			 {
+				 Fehler^ fail = gcnew Fehler();
+				 fail->ShowDialog();
+				 Passwort1->Text = "";
+				 Passwort2->Text = "";
+			 }
+			 }
+			 else
+			 {
+				 Fehler^ fail = gcnew Fehler();
+				 fail->ShowDialog();
+				 Passwort1->Text = "";
+				 Passwort2->Text = "";
+			 }
+			 }
+			 else
+			 {
+				 Fehler^ fail = gcnew Fehler();
+				 fail->ShowDialog();
+				 Passwort1->Text = "";
+				 Passwort2->Text = "";
+			 }
+			 }
+			 else
+			 {
+				 Fehler^ fail = gcnew Fehler();
+				 fail->ShowDialog();
+				 Passwort1->Text = "";
+				 Passwort2->Text = "";
+			 }
+			 }
+			 else
+			 {
+				 Fehler^ fail = gcnew Fehler();
+				 fail->ShowDialog();
+				 Passwort1->Text = "";
+				 Passwort2->Text = "";
+			 }
 			 }
 			 else
 			 {
