@@ -1,0 +1,32 @@
+//**********TODO**********\\
+
+- CBenutzer: Liste mit Artikeln füllen
+  # Soll in Create_Artikel_Control bei OnBnErstellen() geschehen, nur wie?
+  # evtl. auch einfach neue Datei (artList_Benutzername.txt)
+
+- Search_Artikel_Control erstellen
+  # In uStore_main einfügen
+  # Methoden erstellen
+    * In Dateien speichern etc.
+
+- Search_Shop_Control erstellen
+  # In uStore_main einfügen
+  # Methoden erstellen
+    * In Dateien speichern etc.
+
+- Form/UserControl für gefundenen Artikel
+  # Kaufoption
+
+- Form/UserControl für gefundenen Shop
+  # Alle Artikel werden angezeigt
+  # Weiterleitung auf Form/UserControl für Artikel (Form ist vermutlich pratischer als UserControls..)
+
+//***Eventuell:***\\
+- uStore_art.txt bei LoadUp von uStore_main erstellen lassen
+  # Alle Artikel darin speichern
+    * Damit alle Artikel für "zufälliger Artikel" geladen sind
+    * Eine Variable mit Anzahl der artikel
+
+
+
+//**********DONE:*********\\
