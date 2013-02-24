@@ -35,11 +35,6 @@ namespace uStore {
 			}
 		}
 	private: System::Windows::Forms::TextBox^  FalscheEingabe;
-	protected: 
-
-	protected: 
-
-
 	private: System::Windows::Forms::TextBox^  ups;
 	private: System::Windows::Forms::Button^  OK;
 
@@ -124,9 +119,6 @@ namespace uStore {
 
 		}
 #pragma endregion
-private: System::Void OK_Click(System::Object^  sender, System::EventArgs^  e)
-		 {
-			 //Butten OK hat Cancel-Button Eigenschaft
-		 }
+private: System::Void OK_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

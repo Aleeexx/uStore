@@ -49,21 +49,6 @@ namespace uStore {
 	private: System::Windows::Forms::PictureBox^  Logo;
 	private: System::Windows::Forms::Button^  ArtikelVerkaufen;
 
-
-
-
-
-
-
-
-
-
-
-
-
-	protected:
-		//uStore_Login* parent;
-
 	protected: 
 
 	private:
