@@ -1,8 +1,7 @@
 uStore.sdf
 *.suo
 *.opensdf
+uStore.suo
 
 Debug
 Release
-
-*.txt
