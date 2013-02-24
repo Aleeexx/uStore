@@ -1,4 +1,4 @@
 uStore
 ======
 
-uStore. Create you Shop.
+uStore. Create your Shop.
