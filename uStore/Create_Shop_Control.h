@@ -10,7 +10,7 @@ using namespace System::Data;
 using namespace System::Drawing;
 using namespace System::IO;
 
-namespace TwErgShop {
+namespace uStore {
 
 	/// <summary>
 	/// Zusammenfassung für Create_Shop_Control

@@ -7,7 +7,7 @@
 #include "Fehler.h"
 #include "Benutzer.h"
 
-using namespace TwErgShop;
+using namespace uStore;
 
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)

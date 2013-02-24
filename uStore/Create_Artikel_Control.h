@@ -12,7 +12,7 @@ using namespace System::Drawing;
 using namespace System::IO;
 
 
-namespace TwErgShop {
+namespace uStore {
 
 	/// <summary>
 	/// Zusammenfassung für Create_Artikel_Control

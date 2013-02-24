@@ -3,8 +3,8 @@
 #include "Create_Shop_Control.h"
 #include "Create_Artikel_Control.h"
 
-namespace TwErgShop
-{
+using namespace uStore;
+
 	Void uStore_main::ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 			//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
@@ -29,4 +29,3 @@ namespace TwErgShop
 				/*Schließt uStore_main und springt zurück
 				zu uStore_Login (Wird auch direkt geschlossen)*/
 		}
-}

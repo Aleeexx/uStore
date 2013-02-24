@@ -2,7 +2,7 @@
 #include "uStore_Register.h"
 #include "Fehler.h"
 
-namespace TwErgShop {
+using namespace uStore;
 
 	void uStore_Register::EingabeFehler()
 	{
@@ -11,4 +11,3 @@ namespace TwErgShop {
 		Passwort1->Text = "";
 		Passwort2->Text = "";
 	}
-}

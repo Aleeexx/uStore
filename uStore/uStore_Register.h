@@ -1,6 +1,6 @@
 #pragma once
 
-namespace TwErgShop {
+namespace uStore {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -58,21 +58,6 @@ namespace TwErgShop {
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::PictureBox^  freiBelegt;
 	private: System::Windows::Forms::PictureBox^  korrektFalsch;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	private:

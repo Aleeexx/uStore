@@ -2,7 +2,7 @@
 #include "uStore_Login.h"
 #include "Benutzer.h"
 
-namespace TwErgShop {
+namespace uStore {
 
 	using namespace System;
 	using namespace System::ComponentModel;

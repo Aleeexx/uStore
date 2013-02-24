@@ -1,6 +1,6 @@
 #pragma once
 
-namespace TwErgShop {
+namespace uStore {
 
 	using namespace System;
 	using namespace System::ComponentModel;

@@ -14,7 +14,7 @@
     <ProjectGuid>{D8724BD4-8D85-45F5-8668-710044246985}</ProjectGuid>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>TwErgShop</RootNamespace>
+    <RootNamespace>uStore</RootNamespace>
     <ProjectName>uStore</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

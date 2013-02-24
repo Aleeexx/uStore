@@ -1,6 +1,6 @@
 #pragma once
 
-namespace TwErgShop {
+namespace uStore {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -103,7 +103,7 @@ namespace TwErgShop {
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->OK;
-			this->ClientSize = System::Drawing::Size(315, 132);
+			this->ClientSize = System::Drawing::Size(311, 132);
 			this->ControlBox = false;
 			this->Controls->Add(this->OK);
 			this->Controls->Add(this->ups);
@@ -121,6 +121,7 @@ namespace TwErgShop {
 			this->TopMost = true;
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 private: System::Void OK_Click(System::Object^  sender, System::EventArgs^  e)
