@@ -4,15 +4,15 @@
   # Soll in Create_Artikel_Control bei OnBnErstellen() geschehen, nur wie?
   # evtl. auch einfach neue Datei (artList_Benutzername.txt)
 
-- Search_Artikel_Control erstellen
-  # In uStore_main einfügen
+- Search Artikel Form erstellen
+  # OnBnCLick öffnen
   # Methoden erstellen
-    * In Dateien speichern etc.
+    * "Live Suche"
 
-- Search_Shop_Control erstellen
+- Search_Shop Form erstellen
   # In uStore_main einfügen
   # Methoden erstellen
-    * In Dateien speichern etc.
+    * "Live Suche"
 
 - Form/UserControl für gefundenen Artikel
   # Kaufoption
