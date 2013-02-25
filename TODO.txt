@@ -4,30 +4,38 @@
   # Soll in Create_Artikel_Control bei OnBnErstellen() geschehen, nur wie?
   # evtl. auch einfach neue Datei (artList_Benutzername.txt)
 
-- Search Artikel Form erstellen
-  # OnBnCLick öffnen
-  # Methoden erstellen
-    * "Live Suche"
-
-- Search_Shop Form erstellen
+- Search_Shop_Control erstellen
   # In uStore_main einfügen
   # Methoden erstellen
     * "Live Suche"
 
-- Form/UserControl für gefundenen Artikel
+- Form für gefundenen Artikel
   # Kaufoption
 
-- Form/UserControl für gefundenen Shop
+- Form für gefundenen Shop
   # Alle Artikel werden angezeigt
   # Weiterleitung auf Form/UserControl für Artikel (Form ist vermutlich pratischer als UserControls..)
 
-//***Eventuell:***\\
-- uStore_art.txt bei LoadUp von uStore_main erstellen lassen
+- uStore_art.txt bei laden -> Control "Random_Artikel"
   # Alle Artikel darin speichern
     * Damit alle Artikel für "zufälliger Artikel" geladen sind
     * Eine Variable mit Anzahl der artikel
 
 
 
+//***KOMMENTARE:***\\
+- Live Suche ist noch blöd, weil nur exakt der Name gefunden wird, der gerade in dem Textfeld steht.
+Brauchen eine Variante, welche (Wenn im Feld bsw. nur "Fa" steht) nach allen Dateien/Artikeln sucht die mit Fa anfangen.
+Eventuell uStore_art.txt (.txt-Liste mit allen Artikeln) via ReadLine() und String-im-String-Methode durchsuchen, dann
+ganzen Namen auslesen und die entsprechenden Datei suchen.
+
+
+
+
 //**********DONE:*********\\
 //***Wenn etwas fertig gemacht wurde bitte hier einfügen und mit eigenem Namen versehen!***\\
+
+- Search_Artikel_Control erstellen (Alex)
+  # In uStore_main einfügen
+  # Methoden erstellen
+    * "Live Suche"
