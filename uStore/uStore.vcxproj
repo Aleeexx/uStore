@@ -94,6 +94,7 @@
     <ClCompile Include="Create_Artikel_Control.cpp" />
     <ClCompile Include="Create_Shop_Control.cpp" />
     <ClCompile Include="Fehler.cpp" />
+    <ClCompile Include="Search_Artikel_Control.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -115,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="Fehler.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Search_Artikel_Control.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Shop.h" />
     <ClInclude Include="uStore_Login.h">
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fehler.resx">
       <DependentUpon>Fehler.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Artikel_Control.resx">
+      <DependentUpon>Search_Artikel_Control.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uStore_Login.resX">
       <DependentUpon>uStore_Login.h</DependentUpon>

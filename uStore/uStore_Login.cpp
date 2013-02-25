@@ -7,7 +7,7 @@
 #include "Fehler.h"
 #include "Benutzer.h"
 
-using namespace uStore;
+namespace uStore {
 
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)
@@ -83,3 +83,5 @@ Void uStore_Login::Register_Click(System::Object^  sender, System::EventArgs^  e
 			 //Zeige uStore_Login nach schlieﬂen von uStore_Register wieder
 			 Visible = true;
 		 }
+
+}

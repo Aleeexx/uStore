@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Create_Artikel_Control.h"
 
-using namespace uStore;
+namespace uStore {
 
 Void Create_Artikel_Control::btnOpen_Click(System::Object^  sender, System::EventArgs^  e)
 		 {
@@ -70,3 +70,5 @@ Void Create_Artikel_Control::OnChangeArtName(System::Object^  sender, System::Ev
 		//Bild Button geklickt wurde und Feld leer war (denn dann lable = rot)
 		artName->ForeColor = Color::Black;
 	}
+
+}

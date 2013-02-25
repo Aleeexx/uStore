@@ -2,7 +2,7 @@
 #include "uStore_Register.h"
 #include "Fehler.h"
 
-using namespace uStore;
+namespace uStore {
 
 void uStore_Register::EingabeFehler()
 	{
@@ -11,7 +11,6 @@ void uStore_Register::EingabeFehler()
 		Passwort1->Text = "";
 		Passwort2->Text = "";
 	}
-
 Void uStore_Register::erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		//Schließe Form
@@ -41,6 +40,12 @@ Void uStore_Register::erstellen_Click(System::Object^  sender, System::EventArgs
 			String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Benutzer";
 			String^ tmp2 = ".txt";
 			String^ fileName = tmp1 + "\\user_" + Benutzername->Text + tmp2;
+
+			//Erstelle %AppData%\uStore\Benutzer bei LoadUp von uStore_Register
+			if(!Directory::Exists(tmp1))
+			{
+				Directory::CreateDirectory(tmp1);
+			}
 
 			//In die Datei schreiben
 			StreamWriter^ sw = gcnew StreamWriter(fileName);
@@ -114,9 +119,11 @@ Void uStore_Register::OnChanceEmail(System::Object^  sender, System::EventArgs^ 
 Void uStore_Register::uStore_Register_Load(System::Object^  sender, System::EventArgs^  e)
 	{
 		//Erstelle %AppData%\uStore\Benutzer bei LoadUp von uStore_Register
-		String^ tmp = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Benutzer";
+		String^ tmp = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Benutzer";
 		if(!Directory::Exists(tmp))
 		{
 		Directory::CreateDirectory(tmp);
 		}
 	}
+
+}

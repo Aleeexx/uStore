@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "Create_Shop_Control.h"
 
-using namespace uStore;
+namespace uStore {
 
 Void Create_Shop_Control::erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -40,3 +40,5 @@ Void Create_Shop_Control::Create_Shop_Control_Load(System::Object^  sender, Syst
 				Directory::CreateDirectory(tmp);
 			}
 	}
+
+}
