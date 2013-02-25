@@ -25,8 +25,8 @@
 
 //***KOMMENTARE:***\\
 - Live Suche ist noch blöd, weil nur exakt der Name gefunden wird, der gerade in dem Textfeld steht.
-Brauchen eine Variante, welche (Wenn im Feld bsw. nur "Fa" steht) nach allen Dateien/Artikeln sucht die mit Fa anfangen.
-Eventuell uStore_art.txt (.txt-Liste mit allen Artikeln) via ReadLine() und String-im-String-Methode durchsuchen, dann
+Brauchen eine Variante, welche (Wenn im Feld bsw. nur "Fa" steht) nach allen Dateien/Artikeln sucht die mit "Fa" anfangen.
+Eventuell uStore_art.txt (.txt-Liste mit allen Artikeln) via ReadLine() und String-im-String-Suchmethode durchsuchen, dann
 ganzen Namen auslesen und die entsprechenden Datei suchen.
 
 
