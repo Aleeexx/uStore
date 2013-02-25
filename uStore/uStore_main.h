@@ -123,6 +123,7 @@ namespace uStore {
 			this->ArtikelSuchen->TabIndex = 3;
 			this->ArtikelSuchen->Text = L"Artikel suchen.";
 			this->ArtikelSuchen->UseVisualStyleBackColor = true;
+			this->ArtikelSuchen->Click += gcnew System::EventHandler(this, &uStore_main::ArtikelSuchen_Click);
 			// 
 			// label1
 			// 
@@ -189,5 +190,6 @@ namespace uStore {
 	private: System::Void Logout_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void ShopNeu_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void ArtikelVerkaufen_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void ArtikelSuchen_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
