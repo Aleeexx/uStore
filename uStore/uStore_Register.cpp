@@ -41,22 +41,37 @@ Void uStore_Register::erstellen_Click(System::Object^  sender, System::EventArgs
 			String^ tmp2 = ".txt";
 			String^ fileName = tmp1 + "\\user_" + Benutzername->Text + tmp2;
 
-			//Erstelle %AppData%\uStore\Benutzer bei LoadUp von uStore_Register
+			//Erstelle %AppData%\uStore\Benutzer
 			if(!Directory::Exists(tmp1))
 			{
 				Directory::CreateDirectory(tmp1);
 			}
 
 			//In die Datei schreiben
-			StreamWriter^ sw = gcnew StreamWriter(fileName);
+			StreamWriter^ sw1 = gcnew StreamWriter(fileName);
 			//Passwort in Hash umwandeln
-			sw->WriteLine(Passwort1->Text->GetHashCode());
-			sw->WriteLine(Vorname->Text);
-			sw->WriteLine(Nachname->Text);
-			sw->WriteLine(Telefonnr->Text);
-			sw->WriteLine(Email->Text);
-			sw->Close();
+			sw1->WriteLine(Passwort1->Text->GetHashCode());
+			sw1->WriteLine(Vorname->Text);
+			sw1->WriteLine(Nachname->Text);
+			sw1->WriteLine(Telefonnr->Text);
+			sw1->WriteLine(Email->Text);
+			sw1->Close();
 
+			//userList.txt in &Appdata%\uStore\Benutzer anlegen
+			tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Listen";
+			fileName = tmp1 + "\\userList.txt";
+
+			//Erstelle %AppData%\uStore\Liste 
+			if(!Directory::Exists(tmp1))
+			{
+				Directory::CreateDirectory(tmp1);
+			}
+			
+			//userList.txt schreiben
+			StreamWriter^ sw2 = gcnew StreamWriter(fileName, true);
+			sw2->WriteLine(Benutzername->Text);
+			sw2->Close();
+			
 			//Form schließen
 			Close();
 		}
@@ -73,7 +88,7 @@ Void uStore_Register::OnChangeName(System::Object^  sender, System::EventArgs^  
 		if(Benutzername->Text != "")
 		{
 			//zusammensetzung der Pfades mit eingegebenen Benutzername
-			String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::Desktop) + "\\Benutzer";
+			String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Benutzer";
 			String^ tmp2 = ".txt";
 			String^ fileName = tmp1 + "\\user_" + Benutzername->Text + tmp2;
 

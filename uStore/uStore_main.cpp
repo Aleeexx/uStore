@@ -35,7 +35,7 @@ Void uStore_main::ArtikelSuchen_Click(System::Object^  sender, System::EventArgs
 		//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
 		Search_Artikel_Control^ ArtikelControl = gcnew Search_Artikel_Control(this, user);
 		//Position des UserControls
-		ArtikelControl->Location = Point(200, 90);
+		ArtikelControl->Location = Point(200, 75);
 		//Hinzufügen zum ControlCollective
 		Controls->Add(ArtikelControl);
 	}

@@ -60,6 +60,9 @@
     <ClCompile Include="Search_Artikel_Control.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Search_Artikel.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -101,6 +104,9 @@
     <ClInclude Include="Search_Artikel_Control.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Search_Artikel.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -126,7 +132,7 @@
     <EmbeddedResource Include="uStore_Register.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search_Artikel_Form.resx">
+    <EmbeddedResource Include="Search_Artikel_Control.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
   </ItemGroup>

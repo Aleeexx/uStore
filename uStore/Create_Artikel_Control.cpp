@@ -23,11 +23,6 @@ Void Create_Artikel_Control::btnOpen_Click(System::Object^  sender, System::Even
 				artName->ForeColor = Color::Red;
 			 }
 		 }
-Void Create_Artikel_Control::erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		//UserControl schließen
-		ptrParent->Controls->Remove(this);
-	}
 Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		//%Appdata%\uStore\Bilder anlegen
@@ -53,6 +48,7 @@ Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::Ev
 		StreamWriter^ sw = gcnew StreamWriter(fileName);
 		sw->WriteLine(Artikelname->Text);
 		sw->WriteLine(Preis->Text);
+		sw->WriteLine(user->getName());
 		sw->WriteLine(Beschreibung->Text);
 		sw->WriteLine("{0}\\{1}.png", tmp, Artikelname->Text);
 		sw->Close();
@@ -69,6 +65,11 @@ Void Create_Artikel_Control::OnChangeArtName(System::Object^  sender, System::Ev
 		//Wenn artName geändert wird wieder auf schwarz setzen, falls
 		//Bild Button geklickt wurde und Feld leer war (denn dann lable = rot)
 		artName->ForeColor = Color::Black;
+	}
+Void Create_Artikel_Control::erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		//UserControl schließen
+		ptrParent->Controls->Remove(this);
 	}
 
 }
