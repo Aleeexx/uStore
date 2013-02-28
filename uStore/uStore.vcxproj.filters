@@ -57,9 +57,6 @@
     <ClCompile Include="Fehler.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Search_Artikel_Control.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Search_Artikel.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -104,9 +101,6 @@
     <ClInclude Include="Fehler.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Search_Artikel_Control.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Search_Artikel.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -142,6 +136,9 @@
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Artikel.resx">
+      <Filter>Ressourcendateien</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Found_Artikel_Control.resx">
       <Filter>Ressourcendateien</Filter>
     </EmbeddedResource>
   </ItemGroup>

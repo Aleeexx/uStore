@@ -52,12 +52,13 @@ Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs
 			fileNameArt = tmpPfadArt + Username + tmpPfadArt2;
 			if(File::Exists(fileNameArt))
 			{
-				srArtListSchleife = File::OpenText(fileNameList);
-				srArtList = File::OpenText(fileNameList);
+				srArtListSchleife = File::OpenText(fileNameArt);
+				srArtList = File::OpenText(fileNameArt);
 				while(srArtListSchleife->ReadLine() != nullptr)
 				{
 					Artikel = srArtList->ReadLine();
-					if(Artikel->IndexOf(artSearchName->Text) > 0)
+					if((Artikel->IndexOf(artSearchName->Text, 0) >= 0)
+					&& !(String::IsNullOrWhiteSpace(Artikel)))
 					{
 						//Anlegen von Objekt
 						tmpControl = gcnew Found_Artikel_Control();
@@ -65,7 +66,7 @@ Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs
 						//Zusammensetzung des Pfades %AppData%\uStore\Artikel\art_Artikelname.txt
 						tmpPfadArtikel = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) 
 							+ "\\uStore\\Artikel\\art_";
-						tmpPfadArtikel = ".txt";
+						tmpPfadArtikel2 = ".txt";
 						fileNameArtikel = tmpPfadArtikel + Artikel + tmpPfadArtikel2;
 
 						//Informationen von Artikel holen
