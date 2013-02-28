@@ -4,10 +4,10 @@
   # Soll in Create_Artikel_Control bei OnBnErstellen() geschehen, nur wie?
   # evtl. auch einfach neue Datei (artList_Benutzername.txt)
 
-- Search_Shop_Control erstellen
+- Search_Shop Form erstellen
   # In uStore_main einfügen
   # Methoden erstellen
-    * "Live Suche"
+    * Suchalgorithmus
 
 - Form für gefundenen Artikel
   # Kaufoption
@@ -24,18 +24,12 @@
 
 
 //***KOMMENTARE:***\\
-- Live Suche ist noch blöd, weil nur exakt der Name gefunden wird, der gerade in dem Textfeld steht.
-Brauchen eine Variante, welche (Wenn im Feld bsw. nur "Fa" steht) nach allen Dateien/Artikeln sucht die mit "Fa" anfangen.
-Eventuell uStore_art.txt (.txt-Liste mit allen Artikeln) via ReadLine() und String-im-String-Suchmethode durchsuchen, dann
-ganzen Namen auslesen und die entsprechenden Datei suchen.
-
-
-
+- 
 
 //**********DONE:*********\\
 //***Wenn etwas fertig gemacht wurde bitte hier einfügen und mit eigenem Namen versehen!***\\
 
-- Search_Artikel_Control erstellen (Alex)
+- Search_Artikel Form erstellen (Alex)
   # In uStore_main einfügen
   # Methoden erstellen
-    * "Live Suche"
+    * Suchalgorithmus
