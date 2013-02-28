@@ -25,7 +25,7 @@ Void Search_Artikel_Control::OnChanceArtSearchName(System::Object^  sender, Syst
 			StreamReader^ sr = File::OpenText(fileName);
 			artFoundName->Text = sr->ReadLine();
 			artFoundPreis->Text = sr->ReadLine();
-			artFoundVerkaeufer->Text = sr->ReadLine();;
+			artFoundVerkaeufer->Text = sr->ReadLine();
 			artFoundBeschreibung->Text = sr->ReadLine();
 			artFoundBild->ImageLocation = sr->ReadLine();
 			sr->Close();

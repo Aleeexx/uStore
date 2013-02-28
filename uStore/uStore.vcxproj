@@ -94,6 +94,7 @@
     <ClCompile Include="Create_Artikel_Control.cpp" />
     <ClCompile Include="Create_Shop_Control.cpp" />
     <ClCompile Include="Fehler.cpp" />
+    <ClCompile Include="Found_Artikel_Control.cpp" />
     <ClCompile Include="Search_Artikel.cpp" />
     <ClCompile Include="Search_Artikel_Control.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -117,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="Fehler.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Found_Artikel_Control.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="Search_Artikel.h">
       <FileType>CppForm</FileType>
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fehler.resx">
       <DependentUpon>Fehler.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Found_Artikel_Control.resx">
+      <DependentUpon>Found_Artikel_Control.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Artikel.resx">
       <DependentUpon>Search_Artikel.h</DependentUpon>

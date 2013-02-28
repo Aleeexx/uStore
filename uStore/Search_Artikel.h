@@ -41,6 +41,16 @@ namespace uStore {
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Label^  label1;
 
+
+	private: System::Windows::Forms::Button^  BnArtSuche;
+	private: System::Windows::Forms::Panel^  PanelArtFound;
+
+
+
+
+	private: System::Windows::Forms::Label^  label2;
+
+
 	private:
 		/// <summary>
 		/// Erforderliche Designervariable.
@@ -59,30 +69,35 @@ namespace uStore {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->BnArtSuche = (gcnew System::Windows::Forms::Button());
+			this->PanelArtFound = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// Abbrechen
 			// 
-			this->Abbrechen->Location = System::Drawing::Point(207, 50);
+			this->Abbrechen->DialogResult = System::Windows::Forms::DialogResult::Cancel;
+			this->Abbrechen->Location = System::Drawing::Point(190, 412);
 			this->Abbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Abbrechen->Name = L"Abbrechen";
 			this->Abbrechen->Size = System::Drawing::Size(78, 28);
 			this->Abbrechen->TabIndex = 87;
 			this->Abbrechen->Text = L"Doch nicht.";
 			this->Abbrechen->UseVisualStyleBackColor = true;
+			this->Abbrechen->Click += gcnew System::EventHandler(this, &Search_Artikel::Abbrechen_Click);
 			// 
 			// artSearchName
 			// 
-			this->artSearchName->Location = System::Drawing::Point(21, 53);
+			this->artSearchName->Location = System::Drawing::Point(20, 53);
 			this->artSearchName->Name = L"artSearchName";
-			this->artSearchName->Size = System::Drawing::Size(180, 21);
+			this->artSearchName->Size = System::Drawing::Size(248, 21);
 			this->artSearchName->TabIndex = 86;
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Century Gothic", 10));
-			this->label8->Location = System::Drawing::Point(17, 9);
+			this->label8->Location = System::Drawing::Point(16, 9);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(252, 19);
 			this->label8->TabIndex = 84;
@@ -91,29 +106,61 @@ namespace uStore {
 			// panel1
 			// 
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Location = System::Drawing::Point(-2, 30);
+			this->panel1->Location = System::Drawing::Point(0, 30);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 5, 3, 5);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(690, 1);
+			this->panel1->Size = System::Drawing::Size(290, 1);
 			this->panel1->TabIndex = 85;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(18, 92);
+			this->label1->Location = System::Drawing::Point(17, 131);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(262, 64);
 			this->label1->TabIndex = 88;
 			this->label1->Text = L"Tipp:\r\n\r\nAm besten suchst Du mit möglichst allgemeinen\r\nStichwörtern um deine Tre" 
 				L"fferquote zu erhöhen.";
 			// 
+			// BnArtSuche
+			// 
+			this->BnArtSuche->Location = System::Drawing::Point(190, 81);
+			this->BnArtSuche->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->BnArtSuche->Name = L"BnArtSuche";
+			this->BnArtSuche->Size = System::Drawing::Size(78, 28);
+			this->BnArtSuche->TabIndex = 91;
+			this->BnArtSuche->Text = L"Suchen.";
+			this->BnArtSuche->UseVisualStyleBackColor = true;
+			this->BnArtSuche->Click += gcnew System::EventHandler(this, &Search_Artikel::BnArtSuche_Click);
+			// 
+			// PanelArtFound
+			// 
+			this->PanelArtFound->AutoScroll = true;
+			this->PanelArtFound->Location = System::Drawing::Point(280, 0);
+			this->PanelArtFound->Name = L"PanelArtFound";
+			this->PanelArtFound->Size = System::Drawing::Size(330, 451);
+			this->PanelArtFound->TabIndex = 0;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(59, 256);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(140, 48);
+			this->label2->TabIndex = 92;
+			this->label2->Text = L"UserControls so einfügen:\r\nx = 10\r\ny = 10 + (200 * Anzahl)";
+			// 
 			// Search_Artikel
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(688, 390);
+			this->CancelButton = this->Abbrechen;
+			this->ClientSize = System::Drawing::Size(610, 451);
 			this->ControlBox = false;
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->PanelArtFound);
+			this->Controls->Add(this->BnArtSuche);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Abbrechen);
 			this->Controls->Add(this->artSearchName);
@@ -131,5 +178,7 @@ namespace uStore {
 
 		}
 #pragma endregion
-	};
+	private: System::Void BnArtSuche_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void Abbrechen_Click(System::Object^  sender, System::EventArgs^  e);
+};
 }
