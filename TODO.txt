@@ -4,6 +4,10 @@
   # Soll in Create_Artikel_Control bei OnBnErstellen() geschehen, nur wie?
   # evtl. auch einfach neue Datei (artList_Benutzername.txt)
 
+- Button zu Found_Artikel_Control hinzufügen
+  # Weiterleitung auf Info_Artikel_Control
+  # Von Search_Artikel Form auf uStore_main übertragen + anzeigen
+
 - Search_Shop Form erstellen
   # In uStore_main einfügen
   # Methoden erstellen
