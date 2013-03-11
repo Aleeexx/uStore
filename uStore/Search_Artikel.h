@@ -48,7 +48,7 @@ namespace uStore {
 
 
 
-	private: System::Windows::Forms::Label^  label2;
+
 
 
 	private:
@@ -71,7 +71,6 @@ namespace uStore {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->BnArtSuche = (gcnew System::Windows::Forms::Button());
 			this->PanelArtFound = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// Abbrechen
@@ -82,7 +81,7 @@ namespace uStore {
 			this->Abbrechen->Name = L"Abbrechen";
 			this->Abbrechen->Size = System::Drawing::Size(78, 28);
 			this->Abbrechen->TabIndex = 87;
-			this->Abbrechen->Text = L"Doch nicht.";
+			this->Abbrechen->Text = L"Schließen.";
 			this->Abbrechen->UseVisualStyleBackColor = true;
 			this->Abbrechen->Click += gcnew System::EventHandler(this, &Search_Artikel::Abbrechen_Click);
 			// 
@@ -141,15 +140,6 @@ namespace uStore {
 			this->PanelArtFound->Size = System::Drawing::Size(330, 451);
 			this->PanelArtFound->TabIndex = 0;
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(59, 256);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(140, 48);
-			this->label2->TabIndex = 92;
-			this->label2->Text = L"UserControls so einfügen:\r\nx = 10\r\ny = 10 + (200 * Anzahl)";
-			// 
 			// Search_Artikel
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
@@ -158,7 +148,6 @@ namespace uStore {
 			this->CancelButton = this->Abbrechen;
 			this->ClientSize = System::Drawing::Size(610, 451);
 			this->ControlBox = false;
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->PanelArtFound);
 			this->Controls->Add(this->BnArtSuche);
 			this->Controls->Add(this->label1);
