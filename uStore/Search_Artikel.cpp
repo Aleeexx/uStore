@@ -61,7 +61,7 @@ Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs
 					&& !(String::IsNullOrWhiteSpace(Artikel)))
 					{
 						//Anlegen von Objekt
-						tmpControl = gcnew Found_Artikel_Control();
+						tmpControl = gcnew Found_Artikel_Control(ptrMainPanel, this);
 
 						//Zusammensetzung des Pfades %AppData%\uStore\Artikel\art_Artikelname.txt
 						tmpPfadArtikel = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) 
@@ -78,7 +78,7 @@ Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs
 						tmpControl->artFoundBild->ImageLocation = srArt->ReadLine();
 						srArt->Close();
 						//Position des UserControls
-						tmpControl->Location = Point(10, (10 + (200 * anz)));
+						tmpControl->Location = Point(10, (10 + (190 * anz)));
 						//Hinzufügen zum ControlCollective
 						PanelArtFound->Controls->Add(tmpControl);
 						//Anzahl hochzählen
@@ -98,14 +98,3 @@ Void Search_Artikel::Abbrechen_Click(System::Object^  sender, System::EventArgs^
 		Close();
 	}
 }
-////*****BEISPIEL*****
-		////UserControl erstellen
-		//Found_Artikel_Control^ tmpControl;
-		//for(int i = 0; i < 5; i++)
-		//{
-		//	tmpControl = gcnew Found_Artikel_Control();
-		//	//Position des UserControls
-		//	tmpControl->Location = Point(10, (10 + (200 * i)));
-		//	//Hinzufügen zum ControlCollective
-		//	PanelArtFound->Controls->Add(tmpControl);
-		//}

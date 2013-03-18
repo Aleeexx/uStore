@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Search_Artikel.h"
+
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -16,13 +18,18 @@ namespace uStore {
 	public ref class Found_Artikel_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Found_Artikel_Control(void)
+		Found_Artikel_Control(Panel^ tmpMainPanel, Search_Artikel^ tmpSearchArtikel)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			ptrMainPanel = tmpMainPanel;
+			ptrSearchArtikel = tmpSearchArtikel;
 		}
+	private:
+		Panel^ ptrMainPanel;
+		Search_Artikel^ ptrSearchArtikel;
 
 	protected:
 		/// <summary>
@@ -40,7 +47,7 @@ namespace uStore {
 	public: System::Windows::Forms::Label^  artFoundPreis;
 	public: System::Windows::Forms::Label^  artFoundName;
 	public: System::Windows::Forms::PictureBox^  artFoundBild;
-	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::Button^  BnZumArtikel;
 
 	private:
 		/// <summary>
@@ -60,13 +67,13 @@ namespace uStore {
 			this->artFoundPreis = (gcnew System::Windows::Forms::Label());
 			this->artFoundName = (gcnew System::Windows::Forms::Label());
 			this->artFoundBild = (gcnew System::Windows::Forms::PictureBox());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->BnZumArtikel = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->artFoundBild))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// artFoundBeschreibung
 			// 
-			this->artFoundBeschreibung->Location = System::Drawing::Point(3, 121);
+			this->artFoundBeschreibung->Location = System::Drawing::Point(3, 114);
 			this->artFoundBeschreibung->Multiline = true;
 			this->artFoundBeschreibung->Name = L"artFoundBeschreibung";
 			this->artFoundBeschreibung->Size = System::Drawing::Size(283, 73);
@@ -76,7 +83,7 @@ namespace uStore {
 			// artFoundVerkaeufer
 			// 
 			this->artFoundVerkaeufer->AutoSize = true;
-			this->artFoundVerkaeufer->Location = System::Drawing::Point(200, 62);
+			this->artFoundVerkaeufer->Location = System::Drawing::Point(200, 55);
 			this->artFoundVerkaeufer->Name = L"artFoundVerkaeufer";
 			this->artFoundVerkaeufer->Size = System::Drawing::Size(80, 16);
 			this->artFoundVerkaeufer->TabIndex = 79;
@@ -85,7 +92,7 @@ namespace uStore {
 			// artFoundPreis
 			// 
 			this->artFoundPreis->AutoSize = true;
-			this->artFoundPreis->Location = System::Drawing::Point(200, 37);
+			this->artFoundPreis->Location = System::Drawing::Point(200, 30);
 			this->artFoundPreis->Name = L"artFoundPreis";
 			this->artFoundPreis->Size = System::Drawing::Size(46, 16);
 			this->artFoundPreis->TabIndex = 78;
@@ -94,7 +101,7 @@ namespace uStore {
 			// artFoundName
 			// 
 			this->artFoundName->AutoSize = true;
-			this->artFoundName->Location = System::Drawing::Point(200, 10);
+			this->artFoundName->Location = System::Drawing::Point(200, 3);
 			this->artFoundName->Name = L"artFoundName";
 			this->artFoundName->Size = System::Drawing::Size(56, 16);
 			this->artFoundName->TabIndex = 77;
@@ -102,27 +109,31 @@ namespace uStore {
 			// 
 			// artFoundBild
 			// 
-			this->artFoundBild->Location = System::Drawing::Point(3, 10);
+			this->artFoundBild->Location = System::Drawing::Point(3, 3);
 			this->artFoundBild->Name = L"artFoundBild";
 			this->artFoundBild->Size = System::Drawing::Size(173, 105);
 			this->artFoundBild->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->artFoundBild->TabIndex = 76;
 			this->artFoundBild->TabStop = false;
 			// 
-			// panel1
+			// BnZumArtikel
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Black;
-			this->panel1->Location = System::Drawing::Point(0, 5);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(290, 1);
-			this->panel1->TabIndex = 81;
+			this->BnZumArtikel->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->BnZumArtikel->Location = System::Drawing::Point(203, 85);
+			this->BnZumArtikel->Name = L"BnZumArtikel";
+			this->BnZumArtikel->Size = System::Drawing::Size(77, 23);
+			this->BnZumArtikel->TabIndex = 82;
+			this->BnZumArtikel->Text = L"Zum Artikel.";
+			this->BnZumArtikel->UseVisualStyleBackColor = true;
+			this->BnZumArtikel->Click += gcnew System::EventHandler(this, &Found_Artikel_Control::BnZumArtikel_Click);
 			// 
 			// Found_Artikel_Control
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->Controls->Add(this->panel1);
+			this->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Controls->Add(this->BnZumArtikel);
 			this->Controls->Add(this->artFoundBeschreibung);
 			this->Controls->Add(this->artFoundVerkaeufer);
 			this->Controls->Add(this->artFoundPreis);
@@ -132,12 +143,20 @@ namespace uStore {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"Found_Artikel_Control";
-			this->Size = System::Drawing::Size(290, 195);
+			this->Size = System::Drawing::Size(291, 191);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->artFoundBild))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void BnZumArtikel_Click(System::Object^  sender, System::EventArgs^  e)
+			 {
+				 ptrMainPanel->Controls->Add(this);
+				 Location = System::Drawing::Point(0, 0);
+				 BnZumArtikel->
+				 
+				 ptrSearchArtikel->Close();
+			 }
+};
 }

@@ -15,12 +15,13 @@ namespace uStore {
 	public ref class Search_Artikel : public System::Windows::Forms::Form
 	{
 	public:
-		Search_Artikel(void)
+		Search_Artikel(Panel^ tmpMainPanel)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			ptrMainPanel = tmpMainPanel;
 		}
 
 	protected:
@@ -34,14 +35,13 @@ namespace uStore {
 				delete components;
 			}
 		}
+	private:
+		Panel^ ptrMainPanel;
 	private: System::Windows::Forms::Button^  Abbrechen;
-	protected: 
 	private: System::Windows::Forms::TextBox^  artSearchName;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Label^  label1;
-
-
 	private: System::Windows::Forms::Button^  BnArtSuche;
 	private: System::Windows::Forms::Panel^  PanelArtFound;
 
@@ -137,16 +137,17 @@ namespace uStore {
 			this->PanelArtFound->AutoScroll = true;
 			this->PanelArtFound->Location = System::Drawing::Point(280, 0);
 			this->PanelArtFound->Name = L"PanelArtFound";
-			this->PanelArtFound->Size = System::Drawing::Size(330, 451);
+			this->PanelArtFound->Size = System::Drawing::Size(319, 451);
 			this->PanelArtFound->TabIndex = 0;
 			// 
 			// Search_Artikel
 			// 
+			this->AcceptButton = this->BnArtSuche;
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->CancelButton = this->Abbrechen;
-			this->ClientSize = System::Drawing::Size(610, 451);
+			this->ClientSize = System::Drawing::Size(599, 451);
 			this->ControlBox = false;
 			this->Controls->Add(this->PanelArtFound);
 			this->Controls->Add(this->BnArtSuche);

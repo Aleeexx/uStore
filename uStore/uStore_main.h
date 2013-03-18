@@ -25,6 +25,7 @@ namespace uStore {
 			//
 			user = tmpUser;
 		}
+	public: 
 		CBenutzer^ user;
 
 	protected:
@@ -42,15 +43,10 @@ namespace uStore {
 	private: System::Windows::Forms::Button^  ShopNeu;
 	private: System::Windows::Forms::Button^  ShopSuchen;
 	private: System::Windows::Forms::Button^  ArtikelSuchen;
-
-
-
+	private: System::Windows::Forms::Panel^  mainPanel;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::PictureBox^  Logo;
 	private: System::Windows::Forms::Button^  ArtikelVerkaufen;
-
-	protected: 
-
 	private:
 		/// <summary>
 		/// Erforderliche Designervariable.
@@ -72,6 +68,7 @@ namespace uStore {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Logo = (gcnew System::Windows::Forms::PictureBox());
 			this->ArtikelVerkaufen = (gcnew System::Windows::Forms::Button());
+			this->mainPanel = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Logo))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -157,6 +154,13 @@ namespace uStore {
 			this->ArtikelVerkaufen->UseVisualStyleBackColor = true;
 			this->ArtikelVerkaufen->Click += gcnew System::EventHandler(this, &uStore_main::ArtikelVerkaufen_Click);
 			// 
+			// mainPanel
+			// 
+			this->mainPanel->Location = System::Drawing::Point(200, 90);
+			this->mainPanel->Name = L"mainPanel";
+			this->mainPanel->Size = System::Drawing::Size(335, 349);
+			this->mainPanel->TabIndex = 7;
+			// 
 			// uStore_main
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
@@ -164,6 +168,7 @@ namespace uStore {
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(536, 439);
 			this->ControlBox = false;
+			this->Controls->Add(this->mainPanel);
 			this->Controls->Add(this->ArtikelVerkaufen);
 			this->Controls->Add(this->Logo);
 			this->Controls->Add(this->label1);
