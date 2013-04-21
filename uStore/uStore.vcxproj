@@ -95,7 +95,9 @@
     <ClCompile Include="Create_Shop_Control.cpp" />
     <ClCompile Include="Fehler.cpp" />
     <ClCompile Include="Found_Artikel_Control.cpp" />
+    <ClCompile Include="Found_Shop_Control.cpp" />
     <ClCompile Include="Search_Artikel.cpp" />
+    <ClCompile Include="Search_Shop.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -121,7 +123,13 @@
     <ClInclude Include="Found_Artikel_Control.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="Found_Shop_Control.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Search_Artikel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Search_Shop.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Shop.h" />
@@ -153,8 +161,14 @@
     <EmbeddedResource Include="Found_Artikel_Control.resx">
       <DependentUpon>Found_Artikel_Control.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Found_Shop_Control.resx">
+      <DependentUpon>Found_Shop_Control.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search_Artikel.resx">
       <DependentUpon>Search_Artikel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Shop.resx">
+      <DependentUpon>Search_Shop.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uStore_Login.resX">
       <DependentUpon>uStore_Login.h</DependentUpon>

@@ -12,8 +12,6 @@ Void uStore_main::ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		mainPanel->Controls->Clear();
 		//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
 		Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control(this, user);
-		//Position des UserControls
-		//ShopControl->Location = Point(200, 90);
 		//Hinzufügen zum ControlCollective
 		mainPanel->Controls->Add(ShopControl);
 	}
@@ -23,8 +21,6 @@ Void uStore_main::ArtikelVerkaufen_Click(System::Object^  sender, System::EventA
 		mainPanel->Controls->Clear();
 		//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
 		Create_Artikel_Control^ ArtikelControl = gcnew Create_Artikel_Control(this, user);
-		//Position des UserControls
-		//ArtikelControl->Location = Point(200, 90);
 		//Hinzufügen zum ControlCollective
 		mainPanel->Controls->Add(ArtikelControl);
 	}
@@ -32,10 +28,19 @@ Void uStore_main::ArtikelSuchen_Click(System::Object^  sender, System::EventArgs
 	{
 		//Panel leeren
 		mainPanel->Controls->Clear();
-		//Hide();
+		//Form Objekt wird erstellt und übergibt Adresse von uStore_main
 		Search_Artikel^ tmpSearch = gcnew Search_Artikel(mainPanel);
+		//Form zeigen
 		tmpSearch->Show();
-		//Visible = true;
+	}
+Void uStore_main::ShopSuchen_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		//Panel leeren
+		mainPanel->Controls->Clear();
+		//Form Objekt wird erstellt und übergibt Adresse von uStore_main
+		Search_Shop^ tmpSearch = gcnew Search_Shop(mainPanel);
+		//Form zeigen
+		tmpSearch->Show();
 	}
 Void uStore_main::Logout_Click(System::Object^  sender, System::EventArgs^  e)
 	{

@@ -73,9 +73,11 @@ namespace uStore {
 			// 
 			// artFoundBeschreibung
 			// 
+			this->artFoundBeschreibung->BackColor = System::Drawing::Color::White;
 			this->artFoundBeschreibung->Location = System::Drawing::Point(3, 114);
 			this->artFoundBeschreibung->Multiline = true;
 			this->artFoundBeschreibung->Name = L"artFoundBeschreibung";
+			this->artFoundBeschreibung->ReadOnly = true;
 			this->artFoundBeschreibung->Size = System::Drawing::Size(283, 73);
 			this->artFoundBeschreibung->TabIndex = 80;
 			this->artFoundBeschreibung->Text = L"artBeschreibung";
@@ -123,7 +125,7 @@ namespace uStore {
 			this->BnZumArtikel->Name = L"BnZumArtikel";
 			this->BnZumArtikel->Size = System::Drawing::Size(77, 23);
 			this->BnZumArtikel->TabIndex = 82;
-			this->BnZumArtikel->Text = L"Zum Artikel.";
+			this->BnZumArtikel->Text = L"Zum Artikel";
 			this->BnZumArtikel->UseVisualStyleBackColor = true;
 			this->BnZumArtikel->Click += gcnew System::EventHandler(this, &Found_Artikel_Control::BnZumArtikel_Click);
 			// 
@@ -150,13 +152,6 @@ namespace uStore {
 
 		}
 #pragma endregion
-	private: System::Void BnZumArtikel_Click(System::Object^  sender, System::EventArgs^  e)
-			 {
-				 ptrMainPanel->Controls->Add(this);
-				 Location = System::Drawing::Point(0, 0);
-				 BnZumArtikel->
-				 
-				 ptrSearchArtikel->Close();
-			 }
+	private: System::Void BnZumArtikel_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
