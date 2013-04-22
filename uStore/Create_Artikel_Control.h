@@ -20,14 +20,14 @@ namespace uStore {
 	public ref class Create_Artikel_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Create_Artikel_Control(uStore_main^ tmp, CBenutzer^ tmpUser)
+		Create_Artikel_Control(Panel^ tmpMainPanel, CBenutzer^ tmpUser)
 		{
 			InitializeComponent();
 			
 			//Objekt des angemeldeten Users
 			user = tmpUser;
-			//Zeiger auf uStore_main
-			ptrParent = tmp;
+			//Zeiger auf mainPanel in uStore_main
+			ptrMainPanel = tmpMainPanel;
 		}
 	protected:
 		/// <summary>
@@ -41,8 +41,8 @@ namespace uStore {
 			}
 		}
 	private:
-		//Zeiger auf uStore_main
-		uStore_main^ ptrParent;
+		//Zeiger auf mainPanel in uStore_main
+		Panel^ ptrMainPanel;
 		//Pfad für das Bild
 		String^ Pfad;
 		//Objekt des angemeldeten Nutzers

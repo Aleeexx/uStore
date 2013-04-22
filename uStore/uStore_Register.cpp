@@ -58,10 +58,11 @@ Void uStore_Register::erstellen_Click(System::Object^  sender, System::EventArgs
 			sw1->Close();
 
 			//userList.txt in &Appdata%\uStore\Benutzer anlegen
-			tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Listen";
+			tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+				 + "\\uStore\\Listen";
 			fileName = tmp1 + "\\userList.txt";
 
-			//Erstelle %AppData%\uStore\Liste 
+			//Erstelle %AppData%\uStore\Listen 
 			if(!Directory::Exists(tmp1))
 			{
 				Directory::CreateDirectory(tmp1);

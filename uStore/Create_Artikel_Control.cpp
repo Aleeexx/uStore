@@ -37,7 +37,8 @@ Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::Ev
 			+ "\\uStore\\Bilder\\" + Artikelname->Text + ".png", true);
 			 
 		// art_artName.txt in %Appdata%\uStore\Artikel anlegen
-		String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Artikel";
+		String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+					 + "\\uStore\\Artikel";
 		String^ tmp2 = ".txt";
 		String^ fileName = tmp1 + "\\art_" + Artikelname->Text + tmp2;
 		if(!Directory::Exists(tmp1))
@@ -58,11 +59,12 @@ Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::Ev
 				+ "\\uStore\\Listen\\artUserList";
 		if(!Directory::Exists(tmp))
 		{
-		Directory::CreateDirectory(tmp);
+			Directory::CreateDirectory(tmp);
 	 	}
 
 		// art_artName.txt in %Appdata%\uStore\Artikel anlegen
-		tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) + "\\uStore\\Listen\\artUserList";
+		tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+			 + "\\uStore\\Listen\\artUserList";
 		tmp2 = ".txt";
 		fileName = tmp1 + "\\artList" + user->getName() + tmp2;
 		if(!Directory::Exists(tmp1))
@@ -80,7 +82,7 @@ Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::Ev
 		//user->artList->Add(art);
 
 		//UserControl schließen
-		ptrParent->Controls->Remove(this);
+		ptrMainPanel->Controls->Remove(this);
 	}
 Void Create_Artikel_Control::OnChangeArtName(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -90,8 +92,8 @@ Void Create_Artikel_Control::OnChangeArtName(System::Object^  sender, System::Ev
 	}
 Void Create_Artikel_Control::erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		//UserControl schließen
-		ptrParent->Controls->Remove(this);
+		//Panel leeren
+		ptrMainPanel->Controls->Clear();
 	}
 
 }

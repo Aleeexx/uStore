@@ -3,6 +3,7 @@
 #include "Create_Shop_Control.h"
 #include "Create_Artikel_Control.h"
 #include "Search_Artikel.h"
+#include "Search_Shop.h"
 
 namespace uStore {
 
@@ -11,7 +12,7 @@ Void uStore_main::ShopNeu_Click(System::Object^  sender, System::EventArgs^  e)
 		//Panel leeren
 		mainPanel->Controls->Clear();
 		//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
-		Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control(this, user);
+		Create_Shop_Control^ ShopControl = gcnew Create_Shop_Control(mainPanel, user);
 		//Hinzufügen zum ControlCollective
 		mainPanel->Controls->Add(ShopControl);
 	}
@@ -20,7 +21,7 @@ Void uStore_main::ArtikelVerkaufen_Click(System::Object^  sender, System::EventA
 		//Panel leeren
 		mainPanel->Controls->Clear();
 		//UserControl Objekt wird erstellt und übergibt Adresse von uStore_main
-		Create_Artikel_Control^ ArtikelControl = gcnew Create_Artikel_Control(this, user);
+		Create_Artikel_Control^ ArtikelControl = gcnew Create_Artikel_Control(mainPanel, user);
 		//Hinzufügen zum ControlCollective
 		mainPanel->Controls->Add(ArtikelControl);
 	}

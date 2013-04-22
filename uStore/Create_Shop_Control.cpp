@@ -14,21 +14,35 @@ Void Create_Shop_Control::erstellen_Click(System::Object^  sender, System::Event
 		StreamWriter^ sw = gcnew StreamWriter(fileName);
 		sw->WriteLine(Shopname->Text);
 		sw->WriteLine(user->getName());
-		sw->WriteLine(Tags->Text);
 		sw->WriteLine(user->getTelefonnr());
 		sw->WriteLine(Strassenname->Text);
 		sw->WriteLine(PLZ->Text);
 		sw->WriteLine(Ort->Text);
 		sw->Close();
+
+		//Pfad Zusammensetzung shopList
+		tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+						 + "\\uStore\\Listen\\";
+		fileName = tmp1 + "shopList.txt";
+
+		//Erstelle %AppData%\uStore\Listen
+		if(!Directory::Exists(tmp1))
+		{
+			Directory::CreateDirectory(tmp1);
+		}
+
+		//shopList.txt schreiben
+		StreamWriter^ sw1 = gcnew StreamWriter(fileName, true);
+		sw1->WriteLine(Shopname->Text);
+		sw1->Close();
 				 
 		//Schließe UserControl
-		ptrParent->Controls->Remove(this);
+		ptrMainPanel->Controls->Remove(this);
 	}
 Void Create_Shop_Control::erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		//Schließe UserControl
-		ptrParent->Controls->Remove(this);
-		//FindForm()->Controls->Remove(this);
+		//Panel leeren
+		ptrMainPanel->Controls->Clear();
 	}
 Void Create_Shop_Control::Create_Shop_Control_Load(System::Object^  sender, System::EventArgs^  e)
 	{

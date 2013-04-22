@@ -18,14 +18,17 @@ namespace uStore {
 	public ref class Create_Shop_Control : public System::Windows::Forms::UserControl
 	{
 	public:
-		Create_Shop_Control(uStore_main^ tmpParent, CBenutzer^ tmpUser)
+		Create_Shop_Control(Panel^ tmpMainPanel, CBenutzer^ tmpUser)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
-			ptrParent = tmpParent;
+
+			//Objekt des angemeldeten Users
 			user = tmpUser;
+			//Zeiger auf mainPanel in uStore_main
+			ptrMainPanel = tmpMainPanel;
 		}
 
 	protected:
@@ -40,7 +43,9 @@ namespace uStore {
 			}
 		}
 	private:
-		uStore_main^ ptrParent;
+		//Zeiger auf mainPanel in uStore_main
+		Panel^ ptrMainPanel;
+		//Zeige auf user
 		CBenutzer^ user;
 
 
@@ -55,8 +60,8 @@ namespace uStore {
 	private: System::Windows::Forms::TextBox^  Strassenname;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Button^  erstellen;
-	private: System::Windows::Forms::TextBox^  Tags;
-	private: System::Windows::Forms::Label^  label4;
+
+
 	private: System::Windows::Forms::TextBox^  Telefonnr;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::TextBox^  Shopname;
@@ -85,8 +90,6 @@ namespace uStore {
 			this->Strassenname = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->erstellen = (gcnew System::Windows::Forms::Button());
-			this->Tags = (gcnew System::Windows::Forms::TextBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->Telefonnr = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->Shopname = (gcnew System::Windows::Forms::TextBox());
@@ -98,7 +101,7 @@ namespace uStore {
 			// 
 			// Ort
 			// 
-			this->Ort->Location = System::Drawing::Point(237, 125);
+			this->Ort->Location = System::Drawing::Point(237, 190);
 			this->Ort->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Ort->Name = L"Ort";
 			this->Ort->Size = System::Drawing::Size(86, 21);
@@ -107,7 +110,7 @@ namespace uStore {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(188, 128);
+			this->label8->Location = System::Drawing::Point(188, 193);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(28, 16);
 			this->label8->TabIndex = 34;
@@ -115,7 +118,7 @@ namespace uStore {
 			// 
 			// PLZ
 			// 
-			this->PLZ->Location = System::Drawing::Point(62, 125);
+			this->PLZ->Location = System::Drawing::Point(62, 190);
 			this->PLZ->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->PLZ->Name = L"PLZ";
 			this->PLZ->Size = System::Drawing::Size(86, 21);
@@ -124,7 +127,7 @@ namespace uStore {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(17, 128);
+			this->label6->Location = System::Drawing::Point(17, 193);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(32, 16);
 			this->label6->TabIndex = 32;
@@ -132,7 +135,7 @@ namespace uStore {
 			// 
 			// Strassenname
 			// 
-			this->Strassenname->Location = System::Drawing::Point(149, 95);
+			this->Strassenname->Location = System::Drawing::Point(149, 138);
 			this->Strassenname->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Strassenname->Name = L"Strassenname";
 			this->Strassenname->Size = System::Drawing::Size(173, 21);
@@ -141,7 +144,7 @@ namespace uStore {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(17, 98);
+			this->label5->Location = System::Drawing::Point(17, 141);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(84, 16);
 			this->label5->TabIndex = 30;
@@ -158,28 +161,9 @@ namespace uStore {
 			this->erstellen->UseVisualStyleBackColor = true;
 			this->erstellen->Click += gcnew System::EventHandler(this, &Create_Shop_Control::erstellen_Click);
 			// 
-			// Tags
-			// 
-			this->Tags->Location = System::Drawing::Point(149, 155);
-			this->Tags->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->Tags->Multiline = true;
-			this->Tags->Name = L"Tags";
-			this->Tags->Size = System::Drawing::Size(173, 67);
-			this->Tags->TabIndex = 28;
-			this->Tags->Text = L"Tags\r\nmit \',\'\r\ntrennen";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(17, 177);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(35, 16);
-			this->label4->TabIndex = 27;
-			this->label4->Text = L"Tags:";
-			// 
 			// Telefonnr
 			// 
-			this->Telefonnr->Location = System::Drawing::Point(149, 65);
+			this->Telefonnr->Location = System::Drawing::Point(149, 86);
 			this->Telefonnr->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Telefonnr->Name = L"Telefonnr";
 			this->Telefonnr->Size = System::Drawing::Size(173, 21);
@@ -188,7 +172,7 @@ namespace uStore {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(17, 68);
+			this->label3->Location = System::Drawing::Point(17, 89);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 16);
 			this->label3->TabIndex = 25;
@@ -254,8 +238,6 @@ namespace uStore {
 			this->Controls->Add(this->Strassenname);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->erstellen);
-			this->Controls->Add(this->Tags);
-			this->Controls->Add(this->label4);
 			this->Controls->Add(this->Telefonnr);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->Shopname);

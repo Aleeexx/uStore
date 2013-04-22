@@ -77,6 +77,7 @@ Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs
 						tmpControl->artFoundBeschreibung->Text = srArt->ReadLine();
 						tmpControl->artFoundBild->ImageLocation = srArt->ReadLine();
 						srArt->Close();
+
 						//Position des UserControls
 						tmpControl->Location = Point(10, (10 + (190 * anz)));
 						//Hinzufügen zum ControlCollective

@@ -15,12 +15,13 @@ namespace uStore {
 	public ref class Search_Shop : public System::Windows::Forms::Form
 	{
 	public:
-		Search_Shop(void)
+		Search_Shop(Panel^ tmpMainPanel)
 		{
 			InitializeComponent();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
+			ptrMainPanel = tmpMainPanel;
 		}
 
 	protected:
@@ -34,18 +35,19 @@ namespace uStore {
 				delete components;
 			}
 		}
+	private: 
+		Panel^ ptrMainPanel;
+
 	private: System::Windows::Forms::Panel^  PanelShopFound;
 	private: System::Windows::Forms::Button^  BnShopSuche;
-	protected: 
-
-	protected: 
-
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  Abbrechen;
 	private: System::Windows::Forms::TextBox^  shopSearchName;
 
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::RadioButton^  radioButton1;
+	private: System::Windows::Forms::RadioButton^  radioButton2;
 
 	private:
 		/// <summary>
@@ -67,6 +69,8 @@ namespace uStore {
 			this->shopSearchName = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
 			// PanelShopFound
@@ -75,12 +79,13 @@ namespace uStore {
 			this->PanelShopFound->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->PanelShopFound->Location = System::Drawing::Point(-1, 147);
 			this->PanelShopFound->Name = L"PanelShopFound";
-			this->PanelShopFound->Size = System::Drawing::Size(601, 307);
+			this->PanelShopFound->Size = System::Drawing::Size(577, 307);
 			this->PanelShopFound->TabIndex = 92;
 			// 
 			// BnShopSuche
 			// 
-			this->BnShopSuche->Location = System::Drawing::Point(190, 81);
+			this->BnShopSuche->DialogResult = System::Windows::Forms::DialogResult::OK;
+			this->BnShopSuche->Location = System::Drawing::Point(201, 81);
 			this->BnShopSuche->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->BnShopSuche->Name = L"BnShopSuche";
 			this->BnShopSuche->Size = System::Drawing::Size(78, 28);
@@ -92,7 +97,7 @@ namespace uStore {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(289, 45);
+			this->label1->Location = System::Drawing::Point(17, 81);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(262, 64);
 			this->label1->TabIndex = 97;
@@ -102,19 +107,20 @@ namespace uStore {
 			// Abbrechen
 			// 
 			this->Abbrechen->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-			this->Abbrechen->Location = System::Drawing::Point(473, 113);
+			this->Abbrechen->Location = System::Drawing::Point(491, 112);
 			this->Abbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Abbrechen->Name = L"Abbrechen";
 			this->Abbrechen->Size = System::Drawing::Size(78, 28);
 			this->Abbrechen->TabIndex = 96;
 			this->Abbrechen->Text = L"Schließen.";
 			this->Abbrechen->UseVisualStyleBackColor = true;
+			this->Abbrechen->Click += gcnew System::EventHandler(this, &Search_Shop::Abbrechen_Click);
 			// 
 			// shopSearchName
 			// 
 			this->shopSearchName->Location = System::Drawing::Point(20, 53);
 			this->shopSearchName->Name = L"shopSearchName";
-			this->shopSearchName->Size = System::Drawing::Size(248, 21);
+			this->shopSearchName->Size = System::Drawing::Size(259, 21);
 			this->shopSearchName->TabIndex = 95;
 			// 
 			// label8
@@ -136,20 +142,44 @@ namespace uStore {
 			this->panel1->Size = System::Drawing::Size(604, 1);
 			this->panel1->TabIndex = 94;
 			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(276, 8);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(135, 20);
+			this->radioButton1->TabIndex = 99;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"Suche nach Namen";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(417, 9);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(147, 20);
+			this->radioButton2->TabIndex = 100;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"Suche nach Kategorie";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
 			// Search_Shop
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(599, 451);
+			this->ClientSize = System::Drawing::Size(575, 451);
 			this->ControlBox = false;
+			this->Controls->Add(this->radioButton2);
+			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->PanelShopFound);
 			this->Controls->Add(this->BnShopSuche);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Abbrechen);
 			this->Controls->Add(this->shopSearchName);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->label1);
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
@@ -163,5 +193,6 @@ namespace uStore {
 		}
 #pragma endregion
 	private: System::Void BnShopSuche_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void Abbrechen_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }

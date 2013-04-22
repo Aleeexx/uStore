@@ -98,7 +98,7 @@ namespace uStore {
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->OK;
-			this->ClientSize = System::Drawing::Size(311, 132);
+			this->ClientSize = System::Drawing::Size(311, 130);
 			this->ControlBox = false;
 			this->Controls->Add(this->OK);
 			this->Controls->Add(this->ups);
