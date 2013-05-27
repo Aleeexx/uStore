@@ -319,7 +319,6 @@ namespace uStore {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->korrektFalsch))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 private: System::Void erstellenAbbrechen_Click(System::Object^  sender, System::EventArgs^  e);

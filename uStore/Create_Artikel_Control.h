@@ -69,11 +69,6 @@ namespace uStore {
 	private: System::Windows::Forms::Button^  btnOpen;
 	private: System::Windows::Forms::OpenFileDialog^  openPicture;
 
-
-
-	protected: 
-
-
 	private:
 		/// <summary>
 		/// Erforderliche Designervariable.

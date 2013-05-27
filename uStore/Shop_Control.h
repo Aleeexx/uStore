@@ -85,7 +85,7 @@ namespace uStore {
 			this->shopArtPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->shopArtPanel->Location = System::Drawing::Point(-1, 115);
 			this->shopArtPanel->Name = L"shopArtPanel";
-			this->shopArtPanel->Size = System::Drawing::Size(515, 311);
+			this->shopArtPanel->Size = System::Drawing::Size(588, 311);
 			this->shopArtPanel->TabIndex = 0;
 			// 
 			// Shopname
@@ -125,7 +125,7 @@ namespace uStore {
 			this->panel1->Location = System::Drawing::Point(-1, -46);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(515, 84);
+			this->panel1->Size = System::Drawing::Size(588, 84);
 			this->panel1->TabIndex = 24;
 			// 
 			// label3
@@ -195,7 +195,7 @@ namespace uStore {
 			this->shopOrt->Size = System::Drawing::Size(0, 16);
 			this->shopOrt->TabIndex = 32;
 			// 
-			// Found_Shop_Control
+			// Shop_Control
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -215,8 +215,8 @@ namespace uStore {
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->Name = L"Found_Shop_Control";
-			this->Size = System::Drawing::Size(513, 425);
+			this->Name = L"Shop_Control";
+			this->Size = System::Drawing::Size(586, 425);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
