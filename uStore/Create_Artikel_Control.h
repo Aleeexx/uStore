@@ -63,11 +63,13 @@ namespace uStore {
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Panel^  panel1;
-	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  BildLabel;
+
 	private: System::Windows::Forms::PictureBox^  Bild;
 
 	private: System::Windows::Forms::Button^  btnOpen;
 	private: System::Windows::Forms::OpenFileDialog^  openPicture;
+	private: System::Windows::Forms::Label^  label2;
 
 	private:
 		/// <summary>
@@ -92,17 +94,18 @@ namespace uStore {
 			this->artName = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->BildLabel = (gcnew System::Windows::Forms::Label());
 			this->Bild = (gcnew System::Windows::Forms::PictureBox());
 			this->btnOpen = (gcnew System::Windows::Forms::Button());
 			this->openPicture = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->Bild))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// erstellenAbbrechen
 			// 
-			this->erstellenAbbrechen->Location = System::Drawing::Point(150, 292);
+			this->erstellenAbbrechen->Location = System::Drawing::Point(230, 283);
 			this->erstellenAbbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellenAbbrechen->Name = L"erstellenAbbrechen";
 			this->erstellenAbbrechen->Size = System::Drawing::Size(92, 28);
@@ -113,7 +116,7 @@ namespace uStore {
 			// 
 			// erstellen
 			// 
-			this->erstellen->Location = System::Drawing::Point(252, 292);
+			this->erstellen->Location = System::Drawing::Point(149, 283);
 			this->erstellen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellen->Name = L"erstellen";
 			this->erstellen->Size = System::Drawing::Size(71, 28);
@@ -124,18 +127,17 @@ namespace uStore {
 			// 
 			// Beschreibung
 			// 
-			this->Beschreibung->Location = System::Drawing::Point(149, 97);
+			this->Beschreibung->Location = System::Drawing::Point(149, 115);
 			this->Beschreibung->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->Beschreibung->Multiline = true;
 			this->Beschreibung->Name = L"Beschreibung";
-			this->Beschreibung->Size = System::Drawing::Size(173, 67);
+			this->Beschreibung->Size = System::Drawing::Size(173, 21);
 			this->Beschreibung->TabIndex = 6;
 			this->Beschreibung->Text = L"Artikelbeschreibung.";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(17, 100);
+			this->label4->Location = System::Drawing::Point(17, 117);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(83, 16);
 			this->label4->TabIndex = 44;
@@ -143,7 +145,7 @@ namespace uStore {
 			// 
 			// Preis
 			// 
-			this->Preis->Location = System::Drawing::Point(149, 68);
+			this->Preis->Location = System::Drawing::Point(149, 77);
 			this->Preis->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Preis->Name = L"Preis";
 			this->Preis->Size = System::Drawing::Size(173, 21);
@@ -152,7 +154,7 @@ namespace uStore {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(17, 72);
+			this->label3->Location = System::Drawing::Point(17, 80);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(34, 16);
 			this->label3->TabIndex = 42;
@@ -196,19 +198,19 @@ namespace uStore {
 			this->panel1->Size = System::Drawing::Size(430, 84);
 			this->panel1->TabIndex = 40;
 			// 
-			// label5
+			// BildLabel
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(17, 177);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(29, 16);
-			this->label5->TabIndex = 55;
-			this->label5->Text = L"Bild:";
+			this->BildLabel->AutoSize = true;
+			this->BildLabel->Location = System::Drawing::Point(17, 158);
+			this->BildLabel->Name = L"BildLabel";
+			this->BildLabel->Size = System::Drawing::Size(29, 16);
+			this->BildLabel->TabIndex = 55;
+			this->BildLabel->Text = L"Bild:";
 			// 
 			// Bild
 			// 
 			this->Bild->BackColor = System::Drawing::SystemColors::Control;
-			this->Bild->Location = System::Drawing::Point(149, 171);
+			this->Bild->Location = System::Drawing::Point(149, 158);
 			this->Bild->Name = L"Bild";
 			this->Bild->Size = System::Drawing::Size(173, 105);
 			this->Bild->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -217,7 +219,7 @@ namespace uStore {
 			// 
 			// btnOpen
 			// 
-			this->btnOpen->Location = System::Drawing::Point(20, 196);
+			this->btnOpen->Location = System::Drawing::Point(20, 177);
 			this->btnOpen->Name = L"btnOpen";
 			this->btnOpen->Size = System::Drawing::Size(98, 28);
 			this->btnOpen->TabIndex = 7;
@@ -228,6 +230,17 @@ namespace uStore {
 			// openPicture
 			// 
 			this->openPicture->FileName = L"openPicture";
+			this->openPicture->Filter = L"Image Files(*.JPG;*.PNG;*.BMP)|*.JPG;*.PNG;*.BMP";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7));
+			this->label2->Location = System::Drawing::Point(234, 133);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(91, 15);
+			this->label2->TabIndex = 57;
+			this->label2->Text = L"Max. 28 Zeichen";
 			// 
 			// Create_Artikel_Control
 			// 
@@ -236,7 +249,7 @@ namespace uStore {
 			this->BackColor = System::Drawing::Color::White;
 			this->Controls->Add(this->btnOpen);
 			this->Controls->Add(this->Bild);
-			this->Controls->Add(this->label5);
+			this->Controls->Add(this->BildLabel);
 			this->Controls->Add(this->erstellenAbbrechen);
 			this->Controls->Add(this->erstellen);
 			this->Controls->Add(this->Beschreibung);
@@ -246,6 +259,7 @@ namespace uStore {
 			this->Controls->Add(this->Artikelname);
 			this->Controls->Add(this->artName);
 			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->label2);
 			this->Font = (gcnew System::Drawing::Font(L"Century Gothic", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);

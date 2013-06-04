@@ -12,10 +12,17 @@ Void Create_Artikel_Control::btnOpen_Click(System::Object^  sender, System::Even
 					  Environment::SpecialFolder::MyPictures);
 
 				  openPicture->ShowDialog();
-				  //Ausgewähltes Bild in PictureBox
+				  //Ausgewähltes Bild in PictureBox, wenn != openPicture
 				  Bild->BackColor = System::Drawing::Color::White;
-				  Pfad = openPicture->FileName;
-				  Bild->ImageLocation = Pfad;
+				  if(openPicture->FileName != L"openPicture")
+				  {
+					  System::Drawing::Color::Black;
+					  BildLabel->ForeColor = Color::Black;
+					  Pfad = openPicture->FileName;
+					  Bild->ImageLocation = Pfad;
+				  }
+				  else Bild->ImageLocation = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+															+ "\\uStore\\Bilder\\default.jpg";
 			 }
 			 else
 			 {
@@ -30,11 +37,15 @@ Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::Ev
 				+ "\\uStore\\Bilder";
 		if(!Directory::Exists(tmp))
 		{
-		Directory::CreateDirectory(tmp);
+			Directory::CreateDirectory(tmp);
 	 	}
-		//Bild kopieren rename zu artName.png
-		File::Copy(Bild->ImageLocation, Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) 
-			+ "\\uStore\\Bilder\\" + Artikelname->Text + ".png", true);
+
+		if(openPicture->FileName != L"openPicture" && openPicture->FileName != L"")
+		{
+			//Bild kopieren rename zu artName.png
+			File::Copy(Bild->ImageLocation, Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData) 
+				+ "\\uStore\\Bilder\\" + Artikelname->Text + ".png", true);
+		}
 			 
 		// art_artName.txt in %Appdata%\uStore\Artikel anlegen
 		String^ tmp1 = Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
@@ -51,7 +62,9 @@ Void Create_Artikel_Control::erstellen_Click(System::Object^  sender, System::Ev
 		sw->WriteLine(Preis->Text);
 		sw->WriteLine(user->getName());
 		sw->WriteLine(Beschreibung->Text);
-		sw->WriteLine("{0}\\{1}.png", tmp, Artikelname->Text);
+		if(openPicture->FileName != L"openPicture" && openPicture->FileName != L"") sw->WriteLine("{0}\\{1}.png", tmp, Artikelname->Text);
+		else sw->WriteLine("{0}", Environment::GetFolderPath(Environment::SpecialFolder::ApplicationData)
+															+ "\\uStore\\Bilder\\default.jpg");
 		sw->Close();
 
 		//%Appdata%\uStore\Liste\artUserList anlegen

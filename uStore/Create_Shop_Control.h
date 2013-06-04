@@ -152,7 +152,7 @@ namespace uStore {
 			// 
 			// erstellen
 			// 
-			this->erstellen->Location = System::Drawing::Point(252, 247);
+			this->erstellen->Location = System::Drawing::Point(145, 247);
 			this->erstellen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellen->Name = L"erstellen";
 			this->erstellen->Size = System::Drawing::Size(71, 28);
@@ -216,7 +216,7 @@ namespace uStore {
 			// 
 			// erstellenAbbrechen
 			// 
-			this->erstellenAbbrechen->Location = System::Drawing::Point(150, 247);
+			this->erstellenAbbrechen->Location = System::Drawing::Point(230, 247);
 			this->erstellenAbbrechen->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->erstellenAbbrechen->Name = L"erstellenAbbrechen";
 			this->erstellenAbbrechen->Size = System::Drawing::Size(92, 28);
