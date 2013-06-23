@@ -6,7 +6,8 @@
 using namespace System;
 using namespace System::IO;
 
-namespace uStore {
+namespace uStore
+{
 Void Search_Shop::BnShopSuche_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		//Leere Panel
@@ -54,14 +55,17 @@ Void Search_Shop::BnShopSuche_Click(System::Object^  sender, System::EventArgs^ 
 
 					//Position des UserControls
 					tmpControl->Location = Point(0, -1 +  (102 * anz));
+
 					//Hinzufügen zum ControlCollective
 					PanelShopFound->Controls->Add(tmpControl);
+
 					//Anzahl hochzählen
 					anz++;
 				}
 			}
 			//Wenn nur 1 oder 2 Shops gefunden -> verkleinere Fenster um Scrollbalkenbreite (Wegen Rahmen)
 			if(anz <= 2) this->ClientSize = System::Drawing::Size(575 - SystemInformation::VerticalScrollBarWidth, 451);
+
 			//Ansonsten wieder so groß, dass Scrollbalken mit hinein passt
 			else this->ClientSize = System::Drawing::Size(575, 451);
 		}

@@ -20,6 +20,7 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
