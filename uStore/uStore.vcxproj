@@ -85,7 +85,6 @@
   <ItemGroup>
     <None Include="app.ico" />
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

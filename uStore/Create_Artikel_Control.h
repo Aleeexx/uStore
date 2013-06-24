@@ -26,7 +26,6 @@ namespace uStore {
 			
 			//Objekt des angemeldeten Users
 			user = tmpUser;
-
 			//Zeiger auf mainPanel in uStore_main
 			ptrMainPanel = tmpMainPanel;
 		}

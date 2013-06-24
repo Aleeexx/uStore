@@ -5,9 +5,9 @@
 using namespace System;
 using namespace System::IO;
 
-namespace uStore 
-{
-	Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs^  e)
+namespace uStore {
+
+Void Search_Artikel::BnArtSuche_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		//Alle "gefundenen Artikel" aus dem Großen Panel löschen
 		PanelArtFound->Controls->Clear();
@@ -94,7 +94,7 @@ namespace uStore
 		srList->Close();
 		}
 	}
-	Void Search_Artikel::Abbrechen_Click(System::Object^  sender, System::EventArgs^  e)
+Void Search_Artikel::Abbrechen_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		Close();
 	}
